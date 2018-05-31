@@ -18,8 +18,7 @@ class CateController extends Controller
      */
     public function index()
     {
-        // 查询数据并按照分类路径查询
-        $data = DB::select("select *,concat(path,cid,',') as paths from jz_cate order by paths asc");
+        $data = Cate::select('cid','pid','cname','path',DB::raw("concat(path,cid,',') as paths"))->orderBy('paths','asc')->paginate(10);
         // 遍历查询父类名称
         foreach($data as $k=>$v){
             $v->pname = '';

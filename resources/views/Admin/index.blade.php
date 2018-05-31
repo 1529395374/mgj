@@ -285,6 +285,24 @@
                         </ul>
                     </li>
                 </ul>
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 文章管理</a>
+                        <ul>
+                            <li><a href="/admin/articles">文章列表</a></li>
+                            <li><a href="/admin/articles/create">添加文章</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 轮播管理</a>
+                        <ul>
+                            <li><a href="/admin/carousel">轮播列表</a></li>
+                            <li><a href="/admin/carousel/create">添加轮播</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>  
         </div>
         
