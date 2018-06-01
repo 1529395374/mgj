@@ -44,18 +44,6 @@
 </style>
 <!-- 内容开始 -->
             <div class="container">
-                @if(session('error'))
-                <div class="mws-form-message error">
-                   {{ session('error') }}
-                </div>
-                @endif
-
-                @if(session('success'))
-                <div class="mws-form-message success">
-                     {{ session('success') }}
-                </div>
-                @endif
-               
                <div class="mws-panel grid_8">
                   <div class="mws-panel-header">
                     <span>
@@ -72,8 +60,8 @@
 	                        <th>轮播图1</th>
 	                        <th>跳转路径1</th>
 	                        <th>轮播图2</th>
-                          <th>跳转路径2</th>
-                          <th>轮播图3</th>
+                            <th>跳转路径2</th>
+                            <th>轮播图3</th>
 	                        <th>跳转路径3</th>
 	                        <th>操作</th>
                     	</tr>

@@ -81,7 +81,7 @@
 	                        <th>文章标题</th>
 	                        <th>文章作者</th>
 	                        <th>发布时间</th>
-	                        <th>文章图片</th>
+	                        <!-- <th>文章图片</th> -->
 	                        <th>操作</th>
                     	</tr>
                         <tbody role="alert" aria-live="polite" aria-relevant="all">
@@ -91,7 +91,7 @@
                             <td>{{$v->title}}</td>
                             <td>{{$v->author}}</td>
                             <td>{{$v->created_at}}</td>
-                            <td><img src="{{URL::asset($v->apic)}}"  width="100px" height="100px"></td>
+                            
                             <td>
                                 <form action="/admin/articles/{{$v->id}}" method="post" style="display: inline;">
                                     {{ csrf_field() }}

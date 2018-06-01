@@ -12,7 +12,7 @@
                             <div class="mws-form-inline">
                                 <div class="mws-form-row">
                                     <div class="mws-form-item">
-                                        <textarea class="small" name="content">{{$datas->content}}</textarea>
+                                    {!! $datas->content !!}
                                     </div>
                                 </div>
                             </div>

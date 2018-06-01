@@ -1,16 +1,10 @@
 @extends('Admin.index')
 @section('content')
-
+ <!-- 配置文件 -->
+<script type="text/javascript" src="/Admin/utf8-php/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="/Admin/utf8-php/ueditor.all.js"></script>
         	<!-- 内容开始 -->
-              @if (count($errors) > 0)
-                <div class="mws-form-message error">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <div class="container">
                 <div class="mws-panel grid_8">
                     <div class="mws-panel-header">
@@ -27,15 +21,13 @@
                                     </div>
                                 </div>
                                 <div class="mws-form-row">
-                                    <label class="mws-form-label">图片</label>
-                                    <div class="mws-form-item" style="width: 380px;">
-                                        <input type="file" name="apic" class="small">
-                                    </div>
-                                </div>
-                                <div class="mws-form-row">
                                     <label class="mws-form-label">文章内容</label>
                                     <div class="mws-form-item">
-                                        <textarea class="small" name="content">{{ old('content') }}</textarea>
+                                        <!-- 加载编辑器的容器 -->
+                                    <script id="container" name="content" class="small" type="text/plain">
+
+                                    </script>
+                                        
                                     </div>
                                 </div>
                                 <div class="mws-form-row">
@@ -54,4 +46,13 @@
                 </div>
             </div>
             <!-- 内容结束-->
+<script type="text/javascript">
+    var ue = UE.getEditor('container',{
+        toolbars: [
+    ['fullscreen', 'source', 'undo', 'redo'],
+    ['bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc','simpleupload','insertimage']
+],
+    });
+
+</script>
 @endsection

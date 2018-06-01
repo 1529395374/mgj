@@ -49,27 +49,27 @@ class ArticlesController extends Controller
     {
         //获取输入的信息
         $article_data = $request -> except('_token');
-        //创建文件上传对象
-        if($request->hasFile('apic') == true){
-            $apic = $request -> file('apic');
-            //获取文件后缀
-            $ext = $apic -> getClientOriginalExtension();
-            //随机生成文件名
-            $temp_name = time()+rand(10000,99999).'.'.$ext;
-            //创建文件存放目录
-            $dir_name = './Admins/uploads/'.date('Ymd',time());
-            $filename = $dir_name.'/'.$temp_name;
-            //执行上传
-            $aaa = $apic -> move($dir_name, $temp_name);
-            $article_data['apic'] = $aaa; 
-        }
+        // //创建文件上传对象
+        // if($request->hasFile('apic') == true){
+        //     $apic = $request -> file('apic');
+        //     //获取文件后缀
+        //     $ext = $apic -> getClientOriginalExtension();
+        //     //随机生成文件名
+        //     $temp_name = time()+rand(10000,99999).'.'.$ext;
+        //     //创建文件存放目录
+        //     $dir_name = './Admins/uploads/'.date('Ymd',time());
+        //     $filename = $dir_name.'/'.$temp_name;
+        //     //执行上传
+        //     $aaa = $apic -> move($dir_name, $temp_name);
+        //     $article_data['apic'] = $aaa; 
+        // }
         // dd($article_data);
         //实例化数据表
         $article = new Articles;
         $article -> title = $article_data['title'];
-        if (!empty($article_data['apic'])) {
-            $article -> apic = $article_data['apic'];
-        }
+        // if (!empty($article_data['apic'])) {
+        //     $article -> apic = $article_data['apic'];
+        // }
         $article -> content = $article_data['content'];
         $article -> author = $article_data['author'];
         $res = $article -> save();
@@ -119,27 +119,27 @@ class ArticlesController extends Controller
     {
         //获取输入的信息
         $article_data = $request -> except('_token');
-        //创建文件上传对象
-        if($request->hasFile('apic') == true){
-            $apic = $request -> file('apic');
-            //获取文件后缀
-            $ext = $apic -> getClientOriginalExtension();
-            //随机生成文件名
-            $temp_name = time()+rand(10000,99999).'.'.$ext;
-            //创建文件存放目录
-            $dir_name = './Admins/uploads/'.date('Ymd',time());
-            $filename = $dir_name.'/'.$temp_name;;
-            //执行上传
-            $aaa = $apic -> move($dir_name, $temp_name);
-            $article_data['apic'] = $aaa;
-        }
+        // //创建文件上传对象
+        // if($request->hasFile('apic') == true){
+        //     $apic = $request -> file('apic');
+        //     //获取文件后缀
+        //     $ext = $apic -> getClientOriginalExtension();
+        //     //随机生成文件名
+        //     $temp_name = time()+rand(10000,99999).'.'.$ext;
+        //     //创建文件存放目录
+        //     $dir_name = './Admins/uploads/'.date('Ymd',time());
+        //     $filename = $dir_name.'/'.$temp_name;;
+        //     //执行上传
+        //     $aaa = $apic -> move($dir_name, $temp_name);
+        //     $article_data['apic'] = $aaa;
+        // }
         // dd($article_data);
         //实例化数据表
         $article = Articles::find($id);
         $article -> title = $article_data['title'];
-        if (!empty($article_data['apic'])) {
-            $article -> apic = $article_data['apic'];
-        }
+        // if (!empty($article_data['apic'])) {
+        //     $article -> apic = $article_data['apic'];
+        // }
         $article -> content = $article_data['content'];
         $article -> author = $article_data['author'];
         $res = $article->save();
