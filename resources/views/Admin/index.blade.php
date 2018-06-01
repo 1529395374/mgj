@@ -1,3 +1,5 @@
+<?php 
+use App\Models\Cate; ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -31,6 +33,9 @@
 <!-- Theme Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/Admin/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/Admin/css/themer.css" media="screen">
+<!-- 分页css -->
+<link rel="stylesheet" type="text/css" href="/Admin/css/page.css" media="screen">
+
 
 <title>MWS Admin - Charts</title>
 
@@ -264,9 +269,22 @@
                     <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
                 </form>
             </div>
-            
+            <style type="text/css">
+                #mws-navigation ul li ul{
+                    display:none;
+                }
+            </style>
             <!-- Main Navigation -->
             <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 用户管理</a>
+                        <ul>
+                            <li><a href="/admin/user">用户列表</a></li>
+                            <li><a href="/admin/user/create">用户添加</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 <ul>
                     <li>
                         <a href="#"><i class="icon-list"></i> 分类管理</a>
@@ -300,6 +318,24 @@
                         <ul>
                             <li><a href="/admin/carousel">轮播列表</a></li>
                             <li><a href="/admin/carousel/create">添加轮播</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href=""><i class="icon-list"></i> 友情链接</a>
+                        <ul>
+                            <li><a href="/admin/link">友情链接列表</a></li>
+                            <li><a href="/admin/link/create">添加友情链接</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href=""><i class="icon-list"></i> 广告管理</a>
+                        <ul>
+                            <li><a href="/admin/adver">广告列表</a></li>
+                            <li><a href="/admin/adver/create">广告添加</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -372,8 +408,8 @@
     <script src="/Admin/bootstrap/js/bootstrap.min.js"></script>
     <script src="/Admin/js/core/mws.js"></script>
 
-    <!-- Themer Script (Remove if not needed) -->
-    <script src="/Admin/js/core/themer.js"></script>
+     Themer Script (Remove if not needed) 
+     <script src="/Admin/js/core/themer.js"></script>
 
     <!-- Demo Scripts (remove if not needed) -->
     <script src="/Admin/js/demo/demo.charts.js"></script>

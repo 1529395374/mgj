@@ -28,3 +28,16 @@ Route::resource('/admin/carousel','Admin\CarouselController');
 
 
 
+//后台修改密码
+Route::get('/admin/user/xpw/{id}','Admin\UserController@xpw'); //1:1
+Route::post('/admin/user/x1pw/{id}','Admin\UserController@x1pw'); //1:1
+//后台用户管理
+Route::resource('/admin/user','Admin\UserController');
+
+
+// 后台友情链接管理路由
+Route::resource('admin/link','Admin\LinkController');
+// 后台广告管理路由
+Route::resource('admin/adver','Admin\AdverController');
+
+

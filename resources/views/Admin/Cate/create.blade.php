@@ -14,7 +14,7 @@
                             <div class="mws-form-item">
                                 <select style="width:200px" name="pid">
                                     <option value="0">顶级分类</option>
-                                @foreach($data as $k=>$v)
+                                @foreach($cate_cname as $k=>$v)
                                     <option value="{{$v->cid}}">
                                     <?php
                                         $n = substr_count($v->path, ',') - 1;

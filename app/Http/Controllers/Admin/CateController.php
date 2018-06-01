@@ -18,19 +18,9 @@ class CateController extends Controller
      */
     public function index()
     {
+        // 查询数据并排序在分页
         $data = Cate::select('cid','pid','cname','path',DB::raw("concat(path,cid,',') as paths"))->orderBy('paths','asc')->paginate(10);
-        // 遍历查询父类名称
-        foreach($data as $k=>$v){
-            $v->pname = '';
-            $b = Cate::select('cname')->find($v->pid);
-            // 判断父类是否是顶级分类
-            if($b){
-                $b = $b->cname;
-            }else{
-                $b = '顶级分类';
-            }
-            $v->pname = $b;
-        }
+       
         // 加载显示页面
         return view('/Admin/Cate/index',['data'=>$data]);
     }
@@ -42,10 +32,9 @@ class CateController extends Controller
      */
     public function create()
     {
-        // 查询类别
-        $data = DB::select("select *,concat(path,cid,',') as paths from jz_cate order by paths asc");
+        
         // 加载添加表单并把查询到的类别加载到模板
-        return view('/Admin/Cate/create',['data'=>$data]);
+        return view('/Admin/Cate/create');
     }
 
     /** 执行添加
