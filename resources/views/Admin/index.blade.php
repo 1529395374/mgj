@@ -36,8 +36,38 @@ use App\Models\Cate; ?>
 <!-- 分页css -->
 <link rel="stylesheet" type="text/css" href="/Admin/css/page.css" media="screen">
 
+ <!-- JavaScript Plugins -->
+    <script src="/Admin/js/libs/jquery-1.8.3.min.js"></script>
+    <script src="/Admin/js/libs/jquery.mousewheel.min.js"></script>
+    <script src="/Admin/js/libs/jquery.placeholder.min.js"></script>
+    <script src="/Admin/custom-plugins/fileinput.js"></script>
+    
+    <!-- jQuery-UI Dependent Scripts -->
+    <script src="/Admin/jui/js/jquery-ui-1.9.2.min.js"></script>
+    <script src="/Admin/jui/jquery-ui.custom.min.js"></script>
+    <script src="/Admin/jui/js/jquery.ui.touch-punch.js"></script>
 
-<title>MWS Admin - Charts</title>
+    <!-- Plugin Scripts -->
+    <!--[if lt IE 9]>
+    <script src="/Admin/js/libs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="/Admin/plugins/flot/jquery.flot.min.js"></script>
+    <script src="/Admin/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+    <script src="/Admin/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+    <script src="/Admin/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+    <script src="/Admin/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+    <script src="/Admin/plugins/colorpicker/colorpicker-min.js"></script>
+
+    <!-- Core Script -->
+    <script src="/Admin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Admin/js/core/mws.js"></script>
+
+     <script src="/Admin/js/core/themer.js"></script>
+
+    <!-- Demo Scripts (remove if not needed) -->
+    <script src="/Admin/js/demo/demo.charts.js"></script>
+
+<title>蘑菇街</title>
 
 </head>
 
@@ -342,10 +372,14 @@ use App\Models\Cate; ?>
             </div>  
         </div>
         
+        <script type="text/javascript">
+            $('#mws-navigation ul li ul li a').click(function(){
+            });
+        </script>
         <!-- Main Container Start -->
         <div id="mws-container" class="clearfix">
         
-        	<!-- Inner Container Start -->
+        	<!-- 后台公共头部 -->
             <div class="container">
                 @if(session('success'))
                     <div class="mws-form-message success">
@@ -370,7 +404,7 @@ use App\Models\Cate; ?>
                 
                 @show
             </div>
-            <!-- Inner Container End -->
+            <!-- 后台公共尾部 -->
                        
             <!-- Footer -->
             <div id="mws-footer">
@@ -382,37 +416,7 @@ use App\Models\Cate; ?>
         
     </div>
 
-    <!-- JavaScript Plugins -->
-    <script src="/Admin/js/libs/jquery-1.8.3.min.js"></script>
-    <script src="/Admin/js/libs/jquery.mousewheel.min.js"></script>
-    <script src="/Admin/js/libs/jquery.placeholder.min.js"></script>
-    <script src="/Admin/custom-plugins/fileinput.js"></script>
-    
-    <!-- jQuery-UI Dependent Scripts -->
-    <script src="/Admin/jui/js/jquery-ui-1.9.2.min.js"></script>
-    <script src="/Admin/jui/jquery-ui.custom.min.js"></script>
-    <script src="/Admin/jui/js/jquery.ui.touch-punch.js"></script>
-
-    <!-- Plugin Scripts -->
-    <!--[if lt IE 9]>
-    <script src="/Admin/js/libs/excanvas.min.js"></script>
-    <![endif]-->
-    <script src="/Admin/plugins/flot/jquery.flot.min.js"></script>
-    <script src="/Admin/plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
-    <script src="/Admin/plugins/flot/plugins/jquery.flot.pie.min.js"></script>
-    <script src="/Admin/plugins/flot/plugins/jquery.flot.stack.min.js"></script>
-    <script src="/Admin/plugins/flot/plugins/jquery.flot.resize.min.js"></script>
-    <script src="/Admin/plugins/colorpicker/colorpicker-min.js"></script>
-
-    <!-- Core Script -->
-    <script src="/Admin/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/Admin/js/core/mws.js"></script>
-
-     Themer Script (Remove if not needed) 
-     <script src="/Admin/js/core/themer.js"></script>
-
-    <!-- Demo Scripts (remove if not needed) -->
-    <script src="/Admin/js/demo/demo.charts.js"></script>
+   
 
 </body>
 </html>

@@ -45,6 +45,12 @@ class GoodsController extends Controller
      */
     public function store(GoodsRequest $request)
     {
+    	// 表单验证
+        $this->validate($request,[
+            'gname' => 'unique:goods',
+        ],[
+            'gname.unique' => '分类名称已存在',
+        ]);
         // 获取表单数据
         $data = $request->except(['_token']);
 
@@ -113,6 +119,12 @@ class GoodsController extends Controller
      */
     public function update(GoodsRequest $request, $id)
     {
+    	// 表单验证
+        $this->validate($request,[
+            'gname' => 'unique:goods,gname,'.$id,
+        ],[
+            'gname.unique' => '分类名称已存在',
+        ]);
         // 获取表单数据
         $data = $request->except(['_token','_method']); 
         // 检测是否有文件上传
@@ -134,7 +146,7 @@ class GoodsController extends Controller
         }
         
         // 修改添加
-        $res = Goods::where('cid',$id)->update($data);
+        $res = Goods::where('id',$id)->update($data);
         if($res){
             // 修改成功跳到显示页面
             return redirect('/admin/goods')->with('success','修改成功');

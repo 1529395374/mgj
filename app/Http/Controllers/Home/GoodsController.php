@@ -6,20 +6,21 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Cate;
+use App\Models\Goods;
 
-class IndexController extends Controller
+class GoodsController extends Controller
 {
-    /** 
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function index()
+    public function getIndex($id)
     {
-       
-       return view('/Home/public/index',['show'=>true]);
+        // echo $id;
+        $data = Goods::where('cid',$id)->get();
+        // dd($data);
+        return view('/Home/Goods/index',['data'=>$data]);
     }
 
     /**

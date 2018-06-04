@@ -25,11 +25,11 @@ class GoodsRequest extends Request
     {
         
         return [
-            'gname' => 'required|unique:goods,gname',   //图一验证
-            'price' => 'required',    //图一地址验证
-            'gnum' => 'required',    //图二验证
-            'gdesc' => 'required',    //图二地址验证
-            'pic' => 'required',  //图三验证
+            'gname' => 'required',   //验证商品名称
+            'price' => 'required',    //验证商品价格
+            'gnum' => 'required',    //验证商品数量
+            'gdesc' => 'required',    //验证商品描述
+            'pic' => 'required',  //验证商品
         ];
     }
 
@@ -37,7 +37,6 @@ class GoodsRequest extends Request
     {
         return [
             'gname.required' => '商品名称必填',
-            'gname.unique' => '商品名称重复',
             'price.required' => '商品价格必填',
             'gnum.required' => '商品数量必填',   
             'gdesc.required' => '商品描述必填',   

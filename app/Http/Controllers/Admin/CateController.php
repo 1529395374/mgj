@@ -119,7 +119,6 @@ class CateController extends Controller
         $this->validate($request,[
             'cname' => 'required|unique:jz_cate,cname,'.$id.',cid',
         ],[
-            'cname.required' => '分类名称必填',
             'cname.unique' => '分类名称已存在',
         ]);
         // 获取表单传来的cname

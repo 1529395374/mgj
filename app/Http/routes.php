@@ -20,6 +20,9 @@ Route::post('/admin/cate/issave/{id}','Admin\CateController@issave');
 Route::resource('/admin/cate','Admin\CateController');
 // 后台商品管理
 Route::resource('/admin/goods','Admin\GoodsController');
+// 前台商品管理
+Route::Controller('/home/goods','Home\GoodsController');
+
 
 //文章管理路由
 Route::resource('/admin/articles','Admin\ArticlesController');
