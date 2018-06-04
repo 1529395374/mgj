@@ -236,9 +236,9 @@ use App\Models\Cate; ?>
                         Hello, John Doe
                     </div>
                     <ul>
-                    	<li><a href="/Admin/#">Profile</a></li>
-                        <li><a href="/Admin/#">Change Password</a></li>
-                        <li><a href="/Admin/index.html">Logout</a></li>
+                    	<li><a href="">修改头像</a></li>
+                        <li><a href="">修改密码</a></li>
+                        <li><a href="/admin/login/logout">退出</a></li>
                     </ul>
                 </div>
             </div>
