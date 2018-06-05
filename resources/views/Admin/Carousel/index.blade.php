@@ -55,26 +55,18 @@
                       </div>
                       <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
                     </form>
-                        <tr>
-	                        <th>ID</th>
-	                        <th>轮播图1</th>
-	                        <th>跳转路径1</th>
-	                        <th>轮播图2</th>
-                            <th>跳转路径2</th>
-                            <th>轮播图3</th>
-	                        <th>跳转路径3</th>
-	                        <th>操作</th>
-                    	</tr>
+                    <tr>
+                            <th>ID</th>
+                            <th>轮播图</th>
+                            <th>跳转路径</th>
+                            <th>操作</th>
+                        </tr>
                         <tbody role="alert" aria-live="polite" aria-relevant="all">
                           @foreach($data as $k=>$v)
                         <tr>
                             <td>{{$v->cid}}</td>
-                             <td><img src="{{URL::asset($v->img_one)}}"  width="100px" height="100px"></td>
-                            <td>{{$v->url_one}}</td>
-                            <td><img src="{{URL::asset($v->img_two)}}"  width="100px" height="100px"></td>
-                            <td>{{$v->url_two}}</td>
-                            <td><img src="{{URL::asset($v->img_three)}}"  width="100px" height="100px"></td>
-                            <td>{{$v->url_three}}</td>
+                             <td><img src="{{URL::asset($v->profile)}}"  width="100px" height="100px"></td>
+                            <td>{{$v->url_profile}}</td>
                             <td>
                                 <form action="/admin/carousel/{{$v->cid}}" method="post" style="display: inline;">
                                     {{ csrf_field() }}

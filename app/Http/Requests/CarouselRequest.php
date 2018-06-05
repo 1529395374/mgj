@@ -24,24 +24,16 @@ class CarouselRequest extends Request
     public function rules()
     {
         return [
-             'img_one' => 'required',   //图一验证
-            'url_one' => 'required',    //图一地址验证
-            'img_two' => 'required',    //图二验证
-            'url_two' => 'required',    //图二地址验证
-            'img_three' => 'required',  //图三验证
-            'url_three' => 'required',  //图三地址验证
+             'profile' => 'required',   //图一验证
+            'url_profile' => 'required',    //图一地址验证
         ];
     }
 
     public function messages()
     {
         return [
-            'img_one.required' => '轮播图(1)必填',
-            'url_one.required' => '跳转路径(1)必填',
-            'img_two.required' => '轮播图(2)必填',   
-            'url_two.required' => '跳转路径(2)必填',   
-            'img_three.required' => '轮播图(3)必填',   
-            'url_three.required' => '跳转路径(3)必填',   
+            'profile.required' => '轮播图*必填',
+            'url_profile.required' => '跳转路径*必填',
         ];
     }
 }

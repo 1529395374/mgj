@@ -43,52 +43,25 @@ class CarouselController extends Controller
      */
     public function store(CarouselRequest $request)
     {
+        // dd($_POST);
          //获取输入的值
         $data = $request ->except('_token');
          //创建第一张轮播图上传对象
-         if($request->hasFile('img_one') == true){
-            $img_one = $request -> file('img_one');
-            $ext = $img_one -> getClientOriginalExtension();
+         if($request->hasFile('profile') == true){
+            $profile = $request -> file('profile');
+            $ext = $profile -> getClientOriginalExtension();
             $temp_name = time()+rand(10000,99999).'.'.$ext;
             //创建文件存放目录
-            $dir_name = './Admins/uploads/Carousel/img_one'.date('Ymd',time());
+            $dir_name = './Admins/uploads/Carousel/profile'.date('Ymd',time());
             $filename = $dir_name.'/'.$temp_name;
             //执行上传
-            $aa = $img_one -> move($dir_name,$temp_name);
-            $data['img_one'] = $aa;
-        }
-        //创建第二张轮播图上传对象
-         if($request->hasFile('img_two') == true){
-            $img_one = $request -> file('img_two');
-            $ext = $img_one -> getClientOriginalExtension();
-            $temp_name = time()+rand(10000,99999).'.'.$ext;
-            //创建文件存放目录
-            $dir_name = './Admins/uploads/Carousel/img_two'.date('Ymd',time());
-            $filename = $dir_name.'/'.$temp_name;
-            //执行上传
-            $bb = $img_one -> move($dir_name,$temp_name);
-            $data['img_two'] = $bb;
-        } 
-        //创建第三张轮播图上传对象
-        if($request->hasFile('img_three') == true){
-            $img_one = $request -> file('img_three');
-            $ext = $img_one -> getClientOriginalExtension();
-            $temp_name = time()+rand(10000,99999).'.'.$ext;
-            //创建文件存放目录
-            $dir_name = './Admins/uploads/Carousel/img_three'.date('Ymd',time());
-            $filename = $dir_name.'/'.$temp_name;
-            //执行上传
-            $cc = $img_one -> move($dir_name,$temp_name);
-            $data['img_three'] = $cc;
+            $aa = $profile -> move($dir_name,$temp_name);
+            $data['profile'] = $aa;
         }
         //实例化模型 添加数据
         $car_data = new Carousel;  
-        $car_data -> img_one = $data['img_one'];
-        $car_data -> img_two = $data['img_two'];
-        $car_data -> img_three = $data['img_three'];
-        $car_data -> url_one = $data['url_one'];
-        $car_data -> url_two = $data['url_two'];
-        $car_data -> url_three = $data['url_three'];
+        $car_data -> profile = $data['profile'];
+        $car_data -> url_profile = $data['url_profile'];
         $res = $car_data -> save();
          if($res){
             return redirect('/admin/carousel')->with('success','添加成功'); 
@@ -134,66 +107,29 @@ class CarouselController extends Controller
          //获取输入的值
         $data = $request ->except('_token');
          //创建第一张轮播图上传对象
-         if($request->hasFile('img_one') == true){
-            $img_one = $request -> file('img_one');
-            $ext = $img_one -> getClientOriginalExtension();
+         if($request->hasFile('profile') == true){
+            $profile = $request -> file('profile');
+            $ext = $profile -> getClientOriginalExtension();
             $temp_name = time()+rand(10000,99999).'.'.$ext;
             //创建文件存放目录
-            $dir_name = './Admins/uploads/Carousel/img_one'.date('Ymd',time());
+            $dir_name = './Admins/uploads/Carousel/profile'.date('Ymd',time());
             $filename = $dir_name.'/'.$temp_name;
             //执行上传
-            $a1 = $img_one -> move($dir_name,$temp_name);
-            $data['img_one'] = $a1;
-        }
-        //创建第二张轮播图上传对象
-         if($request->hasFile('img_two') == true){
-            $img_one = $request -> file('img_two');
-            $ext = $img_one -> getClientOriginalExtension();
-            $temp_name = time()+rand(10000,99999).'.'.$ext;
-            //创建文件存放目录
-            $dir_name = './Admins/uploads/Carousel/img_two'.date('Ymd',time());
-            $filename = $dir_name.'/'.$temp_name;
-            //执行上传
-            $a2 = $img_one -> move($dir_name,$temp_name);
-            $data['img_two'] = $a2;
-        } 
-        //创建第三张轮播图上传对象
-        if($request->hasFile('img_three') == true){
-            $img_one = $request -> file('img_three');
-            $ext = $img_one -> getClientOriginalExtension();
-            $temp_name = time()+rand(10000,99999).'.'.$ext;
-            //创建文件存放目录
-            $dir_name = './Admins/uploads/Carousel/img_three'.date('Ymd',time());
-            $filename = $dir_name.'/'.$temp_name;
-            //执行上传
-            $a3 = $img_one -> move($dir_name,$temp_name);
-            $data['img_three'] = $a3;
+            $a1 = $profile -> move($dir_name,$temp_name);
+            $data['profile'] = $a1;
         }
          //实例化模型 添加数据
         $car_data = Carousel::find($id);
-        if (!empty($data['img_one'])) {
-                $car_data -> img_one = $data['img_one'];
-          }elseif (!empty($data['img_two'])) {
-                $car_data -> img_two = $data['img_two'];
-          }elseif (!empty($data['img_two'])) {
-                $car_data -> img_three = $data['img_three'];
+        if (!empty($data['profile'])) {
+                $car_data -> profile = $data['profile'];
           }
-        $car_data -> url_one = $data['url_one'];
-        $car_data -> url_two = $data['url_two'];
-        $car_data -> url_three = $data['url_three'];
+        $car_data -> url_profile = $data['url_profile'];
         $res = $car_data -> save();
          if($res){
             return redirect('/admin/carousel')->with('success','修改成功'); 
         }else{
             return back()->with('errors','修改失败');
         }
-
-        // $res = Carousel::find($id)->update(['img_one' => $data['img_one'],'img_two' => $data['img_two'],'img_three' => $data['img_three'],'url_one' => $data['url_one'],'url_two' => $data['url_two'],'url_three' => $data['url_three'],]);
-        // if($res){
-        //     return redirect('/admin/carousel')->with('success','修改成功'); //跳转 并且附带信息
-        // }else{
-        //     return back()->with('error','修改失败'); //跳转 并且附带信息
-        // }   
     }
 
     /**
@@ -212,5 +148,40 @@ class CarouselController extends Controller
         }else{
             return back()->with('error','删除失败');
         }
+    }
+
+    public function test1(Request $request)
+    {
+         // dd($request->hasFile('img_one'));
+          //创建第一张轮播图上传对象
+        if($request->hasFile('profile') == true){
+            $profile = $request -> file('profile');
+            $ext = $profile -> getClientOriginalExtension();
+            $temp_name = time()+rand(10000,99999).'.'.$ext;
+            //创建文件存放目录
+            $dir_name = './Admins/uploads/Carousel/profile'.date('Ymd',time());
+            $filename = $dir_name.'/'.$temp_name;
+            //执行上传
+            $res = $profile -> move($dir_name,$temp_name);
+            if ($res) {
+                $arr = [
+                    'code'=>1,
+                    'msg'=>'上传成功',
+                    'data'=>[
+                        'src'=>ltrim($dir_name.'/'.$temp_name,'.')
+                    ]
+                ];
+            }else{
+                $arr = [
+                    'code'=>0,
+                    'msg'=>'上传失败',
+                    'data'=>[
+                        'src'=>''
+                    ]
+                ];
+            }
+        }
+
+        echo json_encode($arr);
     }
 }
