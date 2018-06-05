@@ -211,21 +211,18 @@
             <div class="leftNav {{!empty($none) ? $none : ''}}">
                 <ul>
                 <?php $top = 0; ?>
-                 @foreach($Home_cate as $v)     
+                 @foreach($Home_cate as $v)    
                     <li>
                     	<div class="fj">
                         	<span class="n_img"><span></span><img src="/Home/images/nav1.png" /></span>
-                            <span class="fl">{{$v->cname}}</span>
+                            <span class="fl"><a href="" >{{$v->cname}}</a></span>
                         </div>
                         <div class="zj" style="top:{{$top}}px">
                         	<?php $top += -40; ?>
                             <div class="zj_l" >
                              @foreach($v['tow_cate'] as $vv)
-                                <div class="zj_l_c">
-                                    <h2>{{$vv->cname}}</h2>
-                                    @foreach($vv['tow_cate'] as $vvv)
-                                        <a href="/home/goods/index/{{$vvv->cid}}">{{$vvv->cname}}</a>|
-                                    @endforeach
+                                <div class="zj_l_c" >
+                                    <h2><a href="">{{$vv->cname}}</a></h2>
                                 </div>
                              @endforeach   
                             </div>
