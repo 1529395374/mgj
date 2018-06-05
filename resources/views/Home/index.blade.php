@@ -229,11 +229,13 @@
                                 </div>
                              @endforeach   
                             </div>
-                        
+                            <!-- 广告开始-->
                             <div class="zj_r">
-                                <a href="/Home/#"><img src="/Home/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="/Home/#"><img src="/Home/images/n_img2.jpg" width="236" height="200" /></a>
+                               @foreach($adver as $k=>$v)
+                                    <a href="http://{{$v->aurl1}}"><img src="{{$v->apic1}}" style="width:236px; height:200px;"></a><a href="http://{{$v->aurl1}}"></a>
+                                @endforeach
                             </div>
+                            <!-- 广告结束-->
                         </div>
                     </li>
                     @endforeach
@@ -324,7 +326,7 @@
             <dd><a href="/Home/#">投诉与建议</a></dd>
         </dl>
         <div class="b_tel_bg">
-        	<a href="/Home/#" class="b_sh1">新浪微博</a>            
+        	<a href="/Home/#" class="b_sh1">新浪微博</a>
         	<a href="/Home/#" class="b_sh2">腾讯微博</a>
             <p>
             服务热线：<br />
@@ -335,12 +337,15 @@
             <div class="b_er_c"><img src="/Home/images/er.gif" width="118" height="118" /></div>
             <img src="/Home/images/ss.png" />
         </div>
-    </div>    
+    </div>
     <div class="btmbg">
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
-            <img src="/Home/images/b_1.gif" width="98" height="33" /><img src="/Home/images/b_2.gif" width="98" height="33" /><img src="/Home/images/b_3.gif" width="98" height="33" /><img src="/Home/images/b_4.gif" width="98" height="33" /><img src="/Home/images/b_5.gif" width="98" height="33" /><img src="/Home/images/b_6.gif" width="98" height="33" />
-        </div>    	
+            <h6><u>友情链接</u></h6>
+             @foreach($link as $k=>$v)
+                    <a href="http://{{$v->lurl}}"><img src="{{$v->limg}}" style="width:60px; height:40px;"></a><a href="http://{{$v->lurl}}"></a>
+                @endforeach
+        </div>
     </div>
     <!--End Footer End -->    
 </div>

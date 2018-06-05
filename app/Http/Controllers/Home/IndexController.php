@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Cate;
+use App\Models\Admin\Link;
+use App\Models\Admin\Ad;
 
 class IndexController extends Controller
 {
@@ -18,8 +20,14 @@ class IndexController extends Controller
 
     public function index()
     {
-       
-       return view('/Home/public/index',['show'=>true]);
+       // 取出友情链接数据
+        $link = Link::get();
+        // dd($link);
+        // 取出广告数据
+        $adver = Ad::get();
+        // dd($adver);
+        // 加载首页模板并分配数据
+       return view('/Home/public/index',['show'=>true,'link'=>$link,'adver'=>$adver]);
     }
 
     /**

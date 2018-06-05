@@ -12,6 +12,8 @@
 */
 // 前台主页
 Route::get('/','Home\IndexController@index');
+
+
 // 后台显示添加子类表单
 Route::get('/admin/cate/isedit/{id}','Admin\CateController@isedit');
 // 后台执行添加子类
