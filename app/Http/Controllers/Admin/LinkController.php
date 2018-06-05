@@ -52,7 +52,7 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+       $this->validate($request, [
             'lname' => 'required',
             'lurl' => 'required',
         ], [

@@ -22,6 +22,7 @@ class GoodsController extends Controller
     {
         // 获取数据
         $data = Goods::get();
+        // dump($data);
         // 渲染视图
         return view('Admin/Goods/index',['data'=>$data]);
     }

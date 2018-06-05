@@ -32,7 +32,7 @@
                 @foreach($data as $v)
                     <tr>
                         <td width="20px">{{$v->id}}</td>
-                        <td>{{ Cate::find($v->cid)->cname }}</td>
+                        <td>{{ Cate::find($v->cid)->cname}}</td>
                         <td><div class="wrap">{{$v->gname}}</div></td>
                         <td><img src="{{$v->pic}}" style="width:100px;"></td>
                         <td>{{$v->price}}</td>

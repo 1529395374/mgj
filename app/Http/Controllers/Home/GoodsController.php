@@ -17,9 +17,10 @@ class GoodsController extends Controller
      */
     public function getIndex($id)
     {
-        // echo $id;
+    	// 查询数据
         $data = Goods::where('cid',$id)->get();
-        // dd($data);
+
+	// 显示数据
         return view('/Home/Goods/index',['data'=>$data]);
     }
 
@@ -40,8 +41,10 @@ class GoodsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function getStore($id)
-    {
+    {   
+    	// 查询数据
         $data = Goods::find($id);
+	// 显示数据
         return view('/Home/Goods/store',['data'=>$data]);
     }
 
