@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public static function CateIndex($pid = 0)
     {
-        $data = Cate::where('pid',$pid)->get();
+        $data = Cate::where('pid',$pid)->orderBy('cid','asc')->get();
         $arr = [];
         foreach($data as $k=>$v){
             // echo $v->cid;
