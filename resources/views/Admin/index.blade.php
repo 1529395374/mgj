@@ -35,6 +35,9 @@ use App\Models\Cate; ?>
 <link rel="stylesheet" type="text/css" href="/Admin/css/themer.css" media="screen">
 <!-- 分页css -->
 <link rel="stylesheet" type="text/css" href="/Admin/css/page.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/layui/css/layui.css" media="screen">
+<script src="/layui/layui.all.js" type="text/javascript"></script>
+<script src="/layui/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 
 <title>MWS Admin - Charts</title>

@@ -24,18 +24,14 @@ class CarouselupdateRequest extends Request
     public function rules()
     {
         return [
-            'url_one' => 'required',    //图一地址验证
-            'url_two' => 'required',    //图二地址验证
-            'url_three' => 'required',  //图三地址验证
+            'url_profile' => 'required',    //图一地址验证
         ];
     }
 
     public function messages()
     {
         return [
-            'url_one.required' => '跳转路径(1)必填', 
-            'url_two.required' => '跳转路径(2)必填',    
-            'url_three.required' => '跳转路径(3)必填',   
+            'url_profile.required' => '跳转路径*必填', 
         ];
     }
 }

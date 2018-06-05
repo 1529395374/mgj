@@ -23,6 +23,7 @@ Route::resource('/admin/goods','Admin\GoodsController');
 
 //文章管理路由
 Route::resource('/admin/articles','Admin\ArticlesController');
+Route::post('/admin/carousel/test1','Admin\CarouselController@test1');
 //轮播管理路由
 Route::resource('/admin/carousel','Admin\CarouselController');
 
