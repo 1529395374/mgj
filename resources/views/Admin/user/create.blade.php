@@ -43,10 +43,14 @@
     					<input type="text" class="small" name="email" value="{{ old('email') }}">
     				</div>
     			</div>
+
                 <div class="mws-form-row">
                     <label class="mws-form-label">权限</label>
-                    <div class="mws-form-item">
-                        <input type="text" class="small" name="auth" value="{{ old('auth') }}">
+                    <div class="mws-form-item clearfix">
+                        <ul class="mws-form-list inline">
+                            <li><input type="radio" name="auth" value="1"> <label>超级管理员</label></li>
+                            <li><input type="radio" name="auth" value="2" checked> <label>普通管理员</label></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="mws-form-row">

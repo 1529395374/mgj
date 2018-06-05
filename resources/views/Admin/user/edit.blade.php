@@ -32,11 +32,14 @@
 					</div>
 				</div>
 				<div class="mws-form-row">
-					<label class="mws-form-label">权限</label>
-					<div class="mws-form-item">
-						<input type="text" class="small" name="auth" value="{{ $data->userinfo->auth }}">
-					</div>
-				</div>
+                    <label class="mws-form-label">权限</label>
+                    <div class="mws-form-item clearfix">
+                        <ul class="mws-form-list inline">
+                            <li><input type="radio" name="auth" value="1" @if(!empty($data->userinfo) && $data->userinfo->auth =='1')checked @endif> <label>超级管理员</label></li>
+                            <li><input type="radio" name="auth" value="2" @if(!empty($data->userinfo) && $data->userinfo->auth =='2')checked @endif> <label>普通管理员</label></li>
+                        </ul>
+                    </div>
+                </div>
 				<div class="mws-form-row">
 					<label class="mws-form-label">年龄</label>
 					<div class="mws-form-item">
