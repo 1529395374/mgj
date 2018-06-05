@@ -51,28 +51,31 @@
                   </div>
                   <div class="mws-panel-body no-padding">
                     <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
-                      <form class="layui-form xbs" action="/admin/articles" method="get">
+                    <form id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid" action="/admin/articles" method="get">
                       <div id="DataTables_Table_1_length" class="dataTables_length">
                         <label>显示
                           <select name="page_count" id="">
-                     <option value="5"
-                         @if(isset($search['page_count']) && !empty($search['page_count']) && $search['page_count'] == 5)
-                         selected 
-                         @endif >5条</option>
-                     <option value="15"
-                       @if(isset($search['page_count']) && !empty($search['page_count']) && $search['page_count'] == 15)
-                           selected 
-                           @endif >15条</option>
-                       <option value="25"
-                       @if(isset($search['page_count']) && !empty($search['page_count']) && $search['page_count'] == 25)
-                           selected 
-                           @endif >25条</option>
+                           <option value="5"
+                               @if(isset($search['page_count']) && !empty($search['page_count']) && $search['page_count'] == 5)
+                               selected 
+                               @endif >5条
+                            </option>
+                           <option value="15"
+                             @if(isset($search['page_count']) && !empty($search['page_count']) && $search['page_count'] == 15)
+                                 selected 
+                                 @endif >15条
+                            </option>
+                             <option value="25"
+                             @if(isset($search['page_count']) && !empty($search['page_count']) && $search['page_count'] == 25)
+                                 selected 
+                                 @endif >25条
+                            </option>
                    </select>
                       </div>
                       <div class="dataTables_filter" id="DataTables_Table_1_filter">
                         <label>搜索:
                           <input type="text" aria-controls="DataTables_Table_1" name="search"  placeholder="请输入文章标题" value="{{$search['search'] or ''}}">
-							<input type="submit" name="" value="搜索">
+                        <input type="submit" name="" value="搜索">
                       </label></div>
                       <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
                     </form>

@@ -22,10 +22,6 @@ class IndexController extends Controller
     public function index()
     {
 
-
-        // 加载首页模板并分配数据
-       return view('/Home/public/index',['show'=>true]);
-
         //查询轮播图表信息
         $carousel = Carousel::get();
         //查询新闻表信息
