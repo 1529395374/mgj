@@ -12,7 +12,7 @@ use App\Http\Requests\ArticlesRequest;
 class ArticlesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 后台文章显示
      *
      * @return \Illuminate\Http\Response
      */
@@ -30,7 +30,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * 后台文章添加页
      *
      * @return \Illuminate\Http\Response
      */
@@ -40,7 +40,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 文章执行添加
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -49,21 +49,6 @@ class ArticlesController extends Controller
     {
         //获取输入的信息
         $article_data = $request -> except('_token');
-        // //创建文件上传对象
-        // if($request->hasFile('apic') == true){
-        //     $apic = $request -> file('apic');
-        //     //获取文件后缀
-        //     $ext = $apic -> getClientOriginalExtension();
-        //     //随机生成文件名
-        //     $temp_name = time()+rand(10000,99999).'.'.$ext;
-        //     //创建文件存放目录
-        //     $dir_name = './Admins/uploads/'.date('Ymd',time());
-        //     $filename = $dir_name.'/'.$temp_name;
-        //     //执行上传
-        //     $aaa = $apic -> move($dir_name, $temp_name);
-        //     $article_data['apic'] = $aaa; 
-        // }
-        // dd($article_data);
         //实例化数据表
         $article = new Articles;
         $article -> title = $article_data['title'];
@@ -81,7 +66,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * 后台文章显示详情
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -95,7 +80,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 后台文章显示页.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -109,7 +94,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * 后台文章执行修改
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -119,21 +104,6 @@ class ArticlesController extends Controller
     {
         //获取输入的信息
         $article_data = $request -> except('_token');
-        // //创建文件上传对象
-        // if($request->hasFile('apic') == true){
-        //     $apic = $request -> file('apic');
-        //     //获取文件后缀
-        //     $ext = $apic -> getClientOriginalExtension();
-        //     //随机生成文件名
-        //     $temp_name = time()+rand(10000,99999).'.'.$ext;
-        //     //创建文件存放目录
-        //     $dir_name = './Admins/uploads/'.date('Ymd',time());
-        //     $filename = $dir_name.'/'.$temp_name;;
-        //     //执行上传
-        //     $aaa = $apic -> move($dir_name, $temp_name);
-        //     $article_data['apic'] = $aaa;
-        // }
-        // dd($article_data);
         //实例化数据表
         $article = Articles::find($id);
         $article -> title = $article_data['title'];
@@ -151,7 +121,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * 后台文章执行删除
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -165,5 +135,19 @@ class ArticlesController extends Controller
         }else{
             return back()->with('error','删除失败');
         }
+    }
+
+    /**
+     * [前台文章详情]
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function detail(Request $request)
+    {
+        //查询文章表内容
+        $id = $request -> input('id');
+        $content_data = Articles::find($id);
+        //加载模板
+        return view('Home.Article.detail',['content_data'=>$content_data]);
     }
 }
