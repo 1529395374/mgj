@@ -12,6 +12,8 @@
 */
 // 前台主页
 Route::get('/','Home\IndexController@index');
+
+
 //验证码
 Route::get('/code','CodeController@index');
 Route::get('/check','CodeController@check');
@@ -40,6 +42,21 @@ Route::group(['middleware'=>'login'],function(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 后台显示添加子类表单
 Route::get('/admin/cate/isedit/{id}','Admin\CateController@isedit');
 // 后台执行添加子类
@@ -52,11 +69,40 @@ Route::resource('/admin/goods','Admin\GoodsController');
 Route::Controller('/home/goods','Home\GoodsController');
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //文章管理路由
 Route::resource('/admin/articles','Admin\ArticlesController');
 Route::post('/admin/carousel/test1','Admin\CarouselController@test1');
 //轮播管理路由
 Route::resource('/admin/carousel','Admin\CarouselController');
+
+
+
+
+
+
+
+
+
+
+
 
 
 

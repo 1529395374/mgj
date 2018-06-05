@@ -30,7 +30,7 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -39,9 +39,10 @@ class GoodsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function getStore($id)
     {
-        //
+        $data = Goods::find($id);
+        return view('/Home/Goods/store',['data'=>$data]);
     }
 
     /**

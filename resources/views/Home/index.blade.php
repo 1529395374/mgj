@@ -1,15 +1,8 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link type="text/css" rel="stylesheet" href="/Home/css/style.css" />
-    <!--[if IE 6]>
-    <script src="/Home/js/iepng.js" type="text/javascript"></script>
-        <script type="text/javascript">
-           EvPNG.fix('div, ul, img, li, input, a'); 
-        </script>
-    <![endif]-->    
+	<link type="text/css" rel="stylesheet" href="/Home/css/style.css" />   
     <script type="text/javascript" src="/Home/js/jquery-1.11.1.min_044d0927.js"></script>
 	<script type="text/javascript" src="/Home/js/jquery.bxslider_e88acd1b.js"></script>
     
@@ -227,17 +220,13 @@
                                 </div>
                              @endforeach   
                             </div>
-                        
-                            <div class="zj_r">
-                            </div>
-                        </div>
                     </li>
                     @endforeach
                 </ul>            
             </div>
         </div>  
-        <!--End 商品分类详情 End-->                                                     
-    	<ul class="menu_r">                                                                                                                                               
+        <!--End 商品分类详情 End-->                           
+    	<ul class="menu_r">                                
         	<li><a href="/Home/Index.html">首页</a></li>
             <li><a href="/Home/Food.html">美食</a></li>
             <li><a href="/Home/Fresh.html">生鲜</a></li>
@@ -320,7 +309,7 @@
             <dd><a href="/Home/#">投诉与建议</a></dd>
         </dl>
         <div class="b_tel_bg">
-        	<a href="/Home/#" class="b_sh1">新浪微博</a>            
+        	<a href="/Home/#" class="b_sh1">新浪微博</a>
         	<a href="/Home/#" class="b_sh2">腾讯微博</a>
             <p>
             服务热线：<br />
@@ -331,19 +320,14 @@
             <div class="b_er_c"><img src="/Home/images/er.gif" width="118" height="118" /></div>
             <img src="/Home/images/ss.png" />
         </div>
-    </div>    
+    </div>
     <div class="btmbg">
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
-        </div>    	
+        </div>
     </div>
     <!--End Footer End -->    
 </div>
 
 </body>
-
-
-<!--[if IE 6]>
-<script src="/Home///letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
 </html>
