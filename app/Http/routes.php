@@ -24,7 +24,8 @@ Route::resource('/admin/cate','Admin\CateController');
 Route::resource('/admin/goods','Admin\GoodsController');
 // 前台商品管理
 Route::Controller('/home/goods','Home\GoodsController');
-
+// 前台用户留言反馈
+Route::Controller('/home/words','Home\WordsController');
 
 //文章管理路由
 Route::resource('/admin/articles','Admin\ArticlesController');

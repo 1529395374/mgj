@@ -344,7 +344,7 @@
             <h6><u>友情链接</u></h6>
              @foreach($link as $k=>$v)
                     <a href="http://{{$v->lurl}}"><img src="{{$v->limg}}" style="width:60px; height:40px;"></a><a href="http://{{$v->lurl}}"></a>
-                @endforeach
+             @endforeach
         </div>
     </div>
     <!--End Footer End -->    

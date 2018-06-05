@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Cate;
+use App\Models\Admin\Link;
+use App\Models\Admin\Ad;
 use DB;
 
 class AppServiceProvider extends ServiceProvider
@@ -36,8 +38,13 @@ class AppServiceProvider extends ServiceProvider
         $cate_cname = Cate::select('cid','pid','cname','path',DB::raw("concat(path,cid,',') as paths"))->orderBy('paths','asc')->get();
         // 前台三级菜单
         $Home_cate = self::CateIndex(0);
+        // 取出友情链接数据
+        $link = Link::get();
+        // dd($link);
+        // 取出广告数据
+        $adver = Ad::get();
         // 分配到每个模板
-        view()->share(['cate_cname'=>$cate_cname,'Home_cate'=>$Home_cate]);
+        view()->share(['cate_cname'=>$cate_cname,'Home_cate'=>$Home_cate,'link'=>$link,'adver'=>$adver]);
     }
 
     /**
