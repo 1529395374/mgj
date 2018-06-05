@@ -70,10 +70,10 @@ class AdverController extends Controller
             $pic1 = $request -> file('apic1');
             $hz = $pic1 -> getClientOriginalExtension();
             $temp_name = time()+rand(10000,99999).'.'.$hz;;
-            $dir_name = './Admins/uploads/'.date('Ymd',time());
+            $dir_name = '/Admins/uploads/'.date('Ymd',time());
             $filename = $dir_name.'/'.$temp_name; // 拼接路径
-            $as = $pic1 -> move($dir_name,$temp_name);//执行上传
-            $adver_data['apic1'] = $as;
+            $pic1 -> move('.'.$dir_name,$temp_name);//执行上传
+            $adver_data['apic1'] = $filename;
         }
         $res = AD::create($adver_data);
         // dd($res);
@@ -134,10 +134,10 @@ class AdverController extends Controller
             $pic1 = $request -> file('apic1');
             $hz = $pic1 -> getClientOriginalExtension();
             $temp_name = time()+rand(10000,99999).'.'.$hz;;
-            $dir_name = './Admins/uploads/'.date('Ymd',time());
+            $dir_name = '/Admins/uploads/'.date('Ymd',time());
             $filename = $dir_name.'/'.$temp_name; // 拼接路径
-            $as = $pic1 -> move($dir_name,$temp_name);//执行上传
-            $adver_data['apic1'] = $as;
+            $pic1 -> move('.'.$dir_name,$temp_name);//执行上传
+            $adver_data['apic1'] = $filename;
         }
         if(!isset($filename)){
             $ad -> apic1 = $ad -> apic1; 

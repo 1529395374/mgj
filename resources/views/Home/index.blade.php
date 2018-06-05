@@ -220,6 +220,14 @@
                                 </div>
                              @endforeach   
                             </div>
+                             <!-- 广告开始-->
+                            <div class="zj_r">
+                               @foreach($adver as $k=>$v)
+                                    <a href="http://{{$v->aurl1}}"><img src="{{$v->apic1}}" style="width:236px; height:200px;"></a><a href="http://{{$v->aurl1}}"></a>
+                                @endforeach
+                            </div>
+                            <!-- 广告结束-->
+
                     </li>
                     @endforeach
                 </ul>            
@@ -324,6 +332,10 @@
     <div class="btmbg">
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
+            <h6><u>友情链接</u></h6>
+             @foreach($link as $k=>$v)
+                    <a href="http://{{$v->lurl}}"><img src="{{$v->limg}}" style="width:60px; height:40px;"></a><a href="http://{{$v->lurl}}"></a>
+             @endforeach
         </div>
     </div>
     <!--End Footer End -->    
