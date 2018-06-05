@@ -46,19 +46,6 @@ class CarouselController extends Controller
         // dd($_POST);
          //获取输入的值
         $data = $request ->except('_token');
-         //创建第一张轮播图上传对象
-         if($request->hasFile('profile') == true){
-            $profile = $request -> file('profile');
-            $ext = $profile -> getClientOriginalExtension();
-            $temp_name = time()+rand(10000,99999).'.'.$ext;
-            //创建文件存放目录
-            $dir_name = './Admins/uploads/Carousel/profile'.date('Ymd',time());
-            $filename = $dir_name.'/'.$temp_name;
-            //执行上传
-            $aa = $profile -> move($dir_name,$temp_name);
-            $data['profile'] = $aa;
-        }
-        //实例化模型 添加数据
         $car_data = new Carousel;  
         $car_data -> profile = $data['profile'];
         $car_data -> url_profile = $data['url_profile'];
@@ -106,18 +93,6 @@ class CarouselController extends Controller
     {
          //获取输入的值
         $data = $request ->except('_token');
-         //创建第一张轮播图上传对象
-         if($request->hasFile('profile') == true){
-            $profile = $request -> file('profile');
-            $ext = $profile -> getClientOriginalExtension();
-            $temp_name = time()+rand(10000,99999).'.'.$ext;
-            //创建文件存放目录
-            $dir_name = './Admins/uploads/Carousel/profile'.date('Ymd',time());
-            $filename = $dir_name.'/'.$temp_name;
-            //执行上传
-            $a1 = $profile -> move($dir_name,$temp_name);
-            $data['profile'] = $a1;
-        }
          //实例化模型 添加数据
         $car_data = Carousel::find($id);
         if (!empty($data['profile'])) {
