@@ -248,19 +248,20 @@ class UserController extends Controller
         $salt = 'asd!@#$%^&*()_+';
         //接收数据
         $data = $request->except('_token'); //修改密码里的原密码
-        //dump(md5($data['upwd']));
+        //dump(md5($data['upwd'].$salt));
         $user = User::find($id);    //原来添加的密码
-        //dump($user['upwd']);
+        //dd($user['upwd']);
         
         //判断输入的密码与原始密码是否相同
         if(md5($data['upwd'].$salt) != ($user['upwd'])){
             return back()->with('error','原密码输入不正确');
         }
 
-        // 将新密码赋给原密码字段
-        $user->upwd = md5($data['xupwd']);
+        // 将新密码赋给数据库原密码字段
+        $user->upwd = md5($data['xupwd'].$salt);
+        //dump(md5($data['xupwd'].$salt));
         $res3 = $user->save();
-
+        //dd($res3);
         if($res3){
             return redirect('/admin/user')->with('success','修改成功');
         }else{
