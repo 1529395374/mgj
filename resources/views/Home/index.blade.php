@@ -324,7 +324,7 @@
     <div class="btmbg">
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
-        </div>
+	</div>
     </div>
     <!--End Footer End -->    
 </div>

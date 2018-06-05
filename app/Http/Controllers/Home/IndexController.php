@@ -20,14 +20,9 @@ class IndexController extends Controller
 
     public function index()
     {
-       // 取出友情链接数据
-        $link = Link::get();
-        // dd($link);
-        // 取出广告数据
-        $adver = Ad::get();
-        // dd($adver);
+
         // 加载首页模板并分配数据
-       return view('/Home/public/index',['show'=>true,'link'=>$link,'adver'=>$adver]);
+       return view('/Home/public/index',['show'=>true]);
     }
 
     /**

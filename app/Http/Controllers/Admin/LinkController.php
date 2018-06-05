@@ -66,11 +66,12 @@ class LinkController extends Controller
             $limg = $request -> file('limg');
             $hz = $limg -> getClientOriginalExtension();
             $temp_name = time()+rand(10000,99999).'.'.$hz;;
-            $dir_name = './Admins/uploads/'.date('Ymd',time());
+            $dir_name = '/Admins/uploads/'.date('Ymd',time());
             $filename = $dir_name.'/'.$temp_name; // 拼接路径
-            $as = $limg -> move($dir_name,$temp_name);//执行上传
-            $link_data['limg'] = $as;
+            $limg -> move('.'.$dir_name,$temp_name);//执行上传
+            $link_data['limg'] = $filename;
         }
+        // dd($filename);
         $res = Link::create($link_data);
         if($res){
             return redirect('/admin/link')->with('success','添加成功'); //跳转 并且附带信息
@@ -124,11 +125,12 @@ class LinkController extends Controller
         //创建文件上传对象
         if($request->hasFile('limg') == true){
             $limg = $request -> file('limg');
-            $temp_name = time()+rand(10000,99999);
             $hz = $limg -> getClientOriginalExtension();
-            $filename = $temp_name.'.'.$hz;
-            $as = $limg -> move('./Admins/Uploads/',$filename);//执行上传
-            $link_data['limg'] = $as;
+            $temp_name = time()+rand(10000,99999).'.'.$hz;;
+            $dir_name = '/Admins/uploads/'.date('Ymd',time());
+            $filename = $dir_name.'/'.$temp_name; // 拼接路径
+            $limg -> move('.'.$dir_name,$temp_name);//执行上传
+            $link_data['limg'] = $filename;
             $res = Link::find($id)->update(['lname'=>$link_data['lname'],'lurl'=>$link_data['lurl'],'limg'=>$link_data['limg']]);
             if($res){
                 return redirect('/admin/link')->with('success','修改成功'); //跳转 并且附带信息
