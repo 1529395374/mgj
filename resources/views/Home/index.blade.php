@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -215,21 +216,19 @@
                     <li>
                     	<div class="fj">
                         	<span class="n_img"><span></span><img src="/Home/images/nav1.png" /></span>
-                            <span class="fl"><a href="" >{{$v->cname}}</a></span>
+                            <span class="fl"><a href="/home/goods/index/{{$v->cid}}" >{{$v->cname}}</a></span>
                         </div>
                         <div class="zj" style="top:{{$top}}px">
                         	<?php $top += -40; ?>
                             <div class="zj_l" >
                              @foreach($v['tow_cate'] as $vv)
                                 <div class="zj_l_c" >
-                                    <h2><a href="">{{$vv->cname}}</a></h2>
+                                    <h2><a href="/home/goods/index/{{$vv->cid}}">{{$vv->cname}}</a></h2>
                                 </div>
                              @endforeach   
                             </div>
                         
                             <div class="zj_r">
-                                <a href="/Home/#"><img src="/Home/images/n_img1.jpg" width="236" height="200" /></a>
-                                <a href="/Home/#"><img src="/Home/images/n_img2.jpg" width="236" height="200" /></a>
                             </div>
                         </div>
                     </li>
@@ -336,7 +335,6 @@
     <div class="btmbg">
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
-            <img src="/Home/images/b_1.gif" width="98" height="33" /><img src="/Home/images/b_2.gif" width="98" height="33" /><img src="/Home/images/b_3.gif" width="98" height="33" /><img src="/Home/images/b_4.gif" width="98" height="33" /><img src="/Home/images/b_5.gif" width="98" height="33" /><img src="/Home/images/b_6.gif" width="98" height="33" />
         </div>    	
     </div>
     <!--End Footer End -->    
