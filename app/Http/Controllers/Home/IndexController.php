@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
-
+use App\Models\Admin\Articles;
+use App\Models\Admin\Carousel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Cate;
@@ -21,8 +22,16 @@ class IndexController extends Controller
     public function index()
     {
 
+
         // 加载首页模板并分配数据
        return view('/Home/public/index',['show'=>true]);
+
+        //查询轮播图表信息
+        $carousel = Carousel::get();
+        //查询新闻表信息
+        $article = Articles::get();
+       return view('/Home/public/index',['show'=>true,'carousel'=>$carousel,'article'=>$article]);
+
     }
 
     /**

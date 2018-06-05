@@ -88,6 +88,9 @@ Route::Controller('/home/goods','Home\GoodsController');
 
 //文章管理路由
 Route::resource('/admin/articles','Admin\ArticlesController');
+//前台文章详情页
+Route::get('/home/articles/detail','Admin\ArticlesController@detail');
+//轮播ajax上传
 Route::post('/admin/carousel/test1','Admin\CarouselController@test1');
 //轮播管理路由
 Route::resource('/admin/carousel','Admin\CarouselController');
@@ -110,5 +113,8 @@ Route::resource('/admin/carousel','Admin\CarouselController');
 Route::resource('admin/link','Admin\LinkController');
 // 后台广告管理路由
 Route::resource('admin/adver','Admin\AdverController');
+
+
+
 
 

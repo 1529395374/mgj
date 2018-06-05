@@ -65,7 +65,7 @@
                           @foreach($data as $k=>$v)
                         <tr>
                             <td>{{$v->cid}}</td>
-                             <td><img src="{{URL::asset($v->profile)}}"  width="100px" height="100px"></td>
+                             <td><img src="{{$v->profile}}"  width="100px" height="100px"></td>
                             <td>{{$v->url_profile}}</td>
                             <td>
                                 <form action="/admin/carousel/{{$v->cid}}" method="post" style="display: inline;">

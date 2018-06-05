@@ -4,9 +4,9 @@
         <div class="banner">        
             <div class="top_slide_wrap">
                 <ul class="slide_box bxslider">
-                    <li><img src="/Home/images/ban1.jpg" width="740" height="401" /></li>
-                    <li><img src="/Home/images/ban1.jpg" width="740" height="401" /></li> 
-                    <li><img src="/Home/images/ban1.jpg" width="740" height="401" /></li> 
+                    @foreach($carousel as $k=>$v)
+                    <li><a href="{{$v->url_profile}}" title=""><img src="{{$v->profile}}" width="740" height="401" /></a></li>
+                    @endforeach
                 </ul>   
                 <div class="op_btns clearfix">
                     <a href="#" class="op_btn op_prev"><span></span></a>
@@ -15,7 +15,7 @@
             </div>
         </div>
         <script type="text/javascript">
-        //var jq = jQuery.noConflict();
+        var jq = jQuery.noConflict();
         (function(){
             $(".bxslider").bxSlider({
                 auto:true,
@@ -29,11 +29,9 @@
                 <span class="fr"><a href="#">更多 ></a></span>新闻资讯
             </div>
             <ul>
-                <li><span>[ 特惠 ]</span><a href="#">掬一轮明月 表无尽惦念</a></li>
-                <li><span>[ 公告 ]</span><a href="#">好奇金装成长裤新品上市</a></li>
-                <li><span>[ 特惠 ]</span><a href="#">大牌闪购 · 抢！</a></li>
-                <li><span>[ 公告 ]</span><a href="#">发福利 买车就抢千元油卡</a></li>
-                <li><span>[ 公告 ]</span><a href="#">家电低至五折</a></li>
+                @foreach($article as $k=>$v)
+                <li><span>[ 公告 ]</span><a href="/home/articles/detail?id={{$v->id}}">{{$v->title}}</a></li>
+                @endforeach
             </ul>
             <div class="charge_t">
                 话费充值<div class="ch_t_icon"></div>

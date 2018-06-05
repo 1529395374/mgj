@@ -14,7 +14,7 @@
                                 <div class="mws-form-row">
                                     <label class="mws-form-label">轮播图</label>
                                     <div class="mws-form-item"  style="width: 380px;">
-                                        <img src="{{URL::asset($data->profile)}}" id="pic" style="width: 190px;height: 150px;">
+                                        <img src="{{$data->profile}}" id="pic" style="width: 190px;height: 150px;">
                                         <button type="button" class="layui-btn" id="test1">轮播图</button>
                                         <input type="hidden" name="profile" value="" id="hidden">
                                         <?php echo csrf_field(); ?>

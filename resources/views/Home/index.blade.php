@@ -22,6 +22,9 @@
     <script type="text/javascript" src="/Home/js/tban.js"></script>
     
 	<script type="text/javascript" src="/Home/js/lrscroll_1.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Home/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <!-- 判断是否是主页 -->
     @if(empty($show))
     <script type="text/javascript" src="/Home/js/n_nav.js"></script>
@@ -157,7 +160,7 @@
     </div>
 </div>
 <div class="top">
-    <div class="logo"><a href="/Home/Index.html"><img src="/Home/images/logo.png" /></a></div>
+    <div class="logo"><a href="/"><img src="/Home/images/logo.png" /></a></div>
     <div class="search">
     	<form>
         	<input type="text" value="" class="s_ipt" />
