@@ -12,7 +12,7 @@ class Cate extends Model
  	//一对多
 	public function goods()
 	{
-	    return $this->hasMany('App\Models\goods','id');
+	    return $this->hasMany('App\Models\Goods','id');
 	}
 }
 

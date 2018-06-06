@@ -12,6 +12,6 @@ class Goods extends Model
     //属于 jz_cate
 	public function cate()
     {
-        return $this->belongsTo('App\Models\cate','cid');
+        return $this->belongsTo('App\Models\Cate','cid');
     }
 }

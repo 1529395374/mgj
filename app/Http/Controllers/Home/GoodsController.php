@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Goods;
+use App\Models\Cate;
 
 class GoodsController extends Controller
 {
@@ -15,12 +16,24 @@ class GoodsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function getIndex($id)
     {
+        // 声明一个数组
+        $arr = [];
+        // 查询所有的子类
+        $arr_id = Cate::select('cid')->where('path','like','%,'.$id.',%')->get();
+        // 转换指定格式
+        foreach($arr_id as $v){
+            $arr[] = $v->cid;
+        }
+        // 加上本类
+        $arr[] = $id;
+        // dd($arr);
     	// 查询数据
-        $data = Goods::where('cid',$id)->get();
-
-	// 显示数据
+        $data = Goods::whereIn('cid',$arr)->get();
+        // dd($data);
+	   // 显示数据
         return view('/Home/Goods/index',['data'=>$data]);
     }
 

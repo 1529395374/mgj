@@ -30,6 +30,13 @@
     <script type="text/javascript" src="/Home/js/n_nav.js"></script>
     <?php $none = 'none'; ?>
     @endif
+    <link rel="stylesheet" type="text/css" href="/Home/css/ShopShow.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/css/MagicZoom.css" />
+    <script type="text/javascript" src="/Home/js/MagicZoom.js"></script>
+    <script type="text/javascript" src="/Home/js/num.js">
+        var jq = jQuery.noConflict();
+    </script>
+     <script type="text/javascript" src="/Home/js/shade.js"></script>
 <title>尤洪</title>
 </head>
 <body>  
@@ -336,25 +343,17 @@
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
 
-
-
-
-
-	</div>
-
-            <h6><u>友情链接</u></h6>
-             @foreach($link as $k=>$v)
-                    <a href="http://{{$v->lurl}}"><img src="{{$v->limg}}" style="width:60px; height:40px;"></a><a href="http://{{$v->lurl}}"></a>
-             @endforeach
-        </div>
-
-
-
-
-
+        <h6><u>友情链接</u></h6>
+        @foreach($link as $k=>$v)
+            <a href="http://{{$v->lurl}}"><img src="{{$v->limg}}" style="width:60px; height:40px;"></a><a href="http://{{$v->lurl}}"></a>
+        @endforeach
+	   </div>
+    </div>
     </div>
     <!--End Footer End -->    
 </div>
 
 </body>
+<script src="/Home/js/ShopShow.js"></script>
+
 </html>

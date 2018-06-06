@@ -307,7 +307,7 @@ ul.menu_r li a:hover, ul.menu_r li a.now{
 	width:100%; min-width:1200px; overflow:hidden;
 }
 .bg_color{
-	 background-color:#f6f6f6;
+	 background-color:#fff;
 }
 	
 .content{
@@ -1476,7 +1476,7 @@ ul.brand li .name span{
 }
 
 .pro_des{
-	width:520px; height:490px; overflow:hidden; float:left; display:inline; margin-left:30px;
+	width:520px; height:490px; overflow:hidden; float:left; display:inline; margin-left:60px;
 }
 .des_name{
 	height:50px; line-height:25px; overflow:hidden; color:#888888; font-size:14px;
@@ -1543,10 +1543,10 @@ ul.brand li .name span{
 	width:56px; height:43px; line-height:43px\9; background:none; color:#555555; font-size:18px; text-align:center; font-family:"Microsoft YaHei"; float:left; padding:0; border:0;
 }
 .n_btn_1{
-	width:21px; height:21px; overflow:hidden; background:url(../images/jia.gif) no-repeat center top; float:right; border:0; border-left:1px solid #cccccc; border-bottom:1px solid #cccccc; cursor:pointer;
+	width:20px; height:20px; overflow:hidden; background:url(/Home/images/jia.gif) no-repeat center top; float:right; border:0; border-left:1px solid #cccccc; border-bottom:1px solid #cccccc; cursor:pointer;
 }
 .n_btn_2{
-	width:21px; height:21px; overflow:hidden; background:url(../images/jian.gif) no-repeat center top; float:right; border:0; border-left:1px solid #cccccc; cursor:pointer;
+	width:20px; height:21px; overflow:hidden; background:url(/Home/images/jian.gif) no-repeat center top; float:right; border:0; border-left:1px solid #cccccc; cursor:pointer;
 }
 
 .s_brand{

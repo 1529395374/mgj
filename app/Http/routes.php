@@ -10,6 +10,8 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
+
 // 前台主页
 Route::get('/','Home\IndexController@index');
 
