@@ -6,24 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Goods;
-use App\Models\Cate;
-class GoodsController extends Controller
+
+class SearchController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex($id)
+    public function index()
     {
-        
-        // 查询数据
-        $data = Goods::where('cid',$id)->get();
-
-        // 显示数据
-        return view('/Home/Goods/index',['data'=>$data]);
-
+        //
     }
 
     /**
@@ -33,7 +26,7 @@ class GoodsController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -42,12 +35,9 @@ class GoodsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function getStore($id)
-    {   
-    	// 查询数据
-        $data = Goods::find($id);
-	// 显示数据
-        return view('/Home/Goods/store',['data'=>$data]);
+    public function store(Request $request)
+    {
+        //
     }
 
     /**
@@ -95,10 +85,9 @@ class GoodsController extends Controller
         //
     }
 
-
     public function search(Request $request)
     {
-             //接受搜索的关键字
+        //接受搜索的关键字
         $gname = $request -> input('gname');
         // 关键字为商品名称
         $data1 = Goods::where('gname','like','%'.$gname.'%')->get();
@@ -124,6 +113,6 @@ class GoodsController extends Controller
         $id = array_unique($id);
         $count = count($id);
         $data = Goods::whereIn('id',$id)->where('status','1')->where('gnum','>',1)->get();
-        return view('/Home/Goods/index',['data'=>$data,'gname'=>$gname,'count'=>$count]);
+        return view('home.search.index',['data'=>$data,'gname'=>$gname,'count'=>$count]);
     }
 }

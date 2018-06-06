@@ -162,8 +162,9 @@
 <div class="top">
     <div class="logo"><a href="/"><img src="/Home/images/logo.png" /></a></div>
     <div class="search">
-    	<form>
-        	<input type="text" value="" class="s_ipt" />
+    	<form action="/home/goods/search" method="get">
+             {{ csrf_field() }}
+        	<input type="text" value="" class="s_ipt" name="gname" />
             <input type="submit" value="搜索" class="s_btn" />
         </form>                      
         <span class="fl"><a href="/Home/#">咖啡</a><a href="/Home/#">iphone 6S</a><a href="/Home/#">新鲜美食</a><a href="/Home/#">蛋糕</a><a href="/Home/#">日用品</a><a href="/Home/#">连衣裙</a></span>
@@ -336,16 +337,16 @@
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
 
-
+            <h6><u>友情链接</u></h6>
+             @foreach($link as $k=>$v)
+                    <a href="http://{{$v->lurl}}"><img src="{{$v->limg}}" style="width:60px; height:40px;"></a><a href="http://{{$v->lurl}}"></a>
+             @endforeach
 
 
 
 	</div>
 
-            <h6><u>友情链接</u></h6>
-             @foreach($link as $k=>$v)
-                    <a href="http://{{$v->lurl}}"><img src="{{$v->limg}}" style="width:60px; height:40px;"></a><a href="http://{{$v->lurl}}"></a>
-             @endforeach
+            
         </div>
 
 

@@ -117,12 +117,13 @@ class CarouselController extends Controller
     {
         //实例化数据表
         $car_data = Carousel::find($id);
-         $res = $car_data->delete();
-        if($res){
-            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
-        }else{
-            return back()->with('error','删除失败');
+        $res = $car_data->delete();
+         if ($res) {
+            $arr = ['status'=>1,'msg'=>'删除成功'];
+        } else {
+            $arr = ['status'=>0,'msg'=>'删除失败'];
         }
+        return $arr;
     }
 
     public function test1(Request $request)

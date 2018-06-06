@@ -130,11 +130,12 @@ class ArticlesController extends Controller
     {
         $data = Articles::find($id);
         $res = $data->delete();
-        if($res){
-            return redirect($_SERVER['HTTP_REFERER'])->with('success','删除成功');
-        }else{
-            return back()->with('error','删除失败');
+        if ($res) {
+            $arr = ['status'=>1,'msg'=>'删除成功'];
+        } else {
+            $arr = ['status'=>0,'msg'=>'删除失败'];
         }
+        return $arr;
     }
 
     /**

@@ -68,11 +68,7 @@
                              <td><img src="{{$v->profile}}"  width="100px" height="100px"></td>
                             <td>{{$v->url_profile}}</td>
                             <td>
-                                <form action="/admin/carousel/{{$v->cid}}" method="post" style="display: inline;">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <input type="submit" value="删除" class="btn btn-danger">
-                                </form>
+                                <a href="javascript:;" class="btn btn-danger car_delete">删除</a>
                                 <a href="/admin/carousel/{{$v->cid}}/edit" class="btn btn-warning">修改</a>
                             </td>
                         </tr>
@@ -87,5 +83,32 @@
                 </div>
             </div>
             <!-- 内容结束-->
-
+<script type="text/javascript">
+  $('.car_delete').click(function(){
+    //设置ajax保护
+      $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+        }); 
+      //发送ajax
+      var id = $(this).parent().prev().prev().prev().text();
+      var tr = $(this).parent().parent();
+      // alert(id)
+      $.ajax({
+        url:'/admin/carousel/'+id,
+        type:'DELETE',
+        dataType:'json',
+        success:function(msg){
+          if (msg.status == 1) {
+            layer.msg(msg.msg, {icon: 6, time: 1000});
+            tr.remove();
+          } else {
+            layer.msg(msg.msg, {icon: 5, time: 1000});
+          }
+        },
+        async:true,
+      });
+  });
+</script>
 @endsection
