@@ -149,18 +149,6 @@
                         </div>
                     </div>    
                 </div>
-                <div class="ss_list">
-                	<a href="/Home/#">网站导航</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="/Home/#">网站导航</a></li>
-                                <li><a href="/Home/#">网站导航</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
             </span>
             <span class="fl">|&nbsp;关注我们：</span>
             <span class="s_sh"><a href="/Home/#" class="sh1">新浪</a><a href="/Home/#" class="sh2">微信</a></span>
