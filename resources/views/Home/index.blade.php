@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link type="text/css" rel="stylesheet" href="/Home/css/style.css" />   
     <script type="text/javascript" src="/Home/js/jquery-1.11.1.min_044d0927.js"></script>
 	<script type="text/javascript" src="/Home/js/jquery.bxslider_e88acd1b.js"></script>
@@ -21,6 +22,7 @@
     <script type="text/javascript" src="/Home/js/hban.js"></script>
     <script type="text/javascript" src="/Home/js/tban.js"></script>
     
+
 	<script type="text/javascript" src="/Home/js/lrscroll_1.js"></script>
     <link rel="stylesheet" type="text/css" href="/Home/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
@@ -187,16 +189,6 @@
             	<li>
                 	<div class="img"><a href="/Home/#"><img src="/Home/images/car1.jpg" width="58" height="58" /></a></div>
                     <div class="name"><a href="/Home/#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-                <li>
-                	<div class="img"><a href="/Home/#"><img src="/Home/images/car2.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="/Home/#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-                <li>
-                	<div class="img"><a href="/Home/#"><img src="/Home/images/car2.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="/Home/#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
                     <div class="price"><font color="#ff4e00">￥399</font> X1</div>
                 </li>
             </ul>

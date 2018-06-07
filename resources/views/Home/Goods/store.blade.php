@@ -1,10 +1,14 @@
 @extends('Home.index')
 @section('content')
+    <script type="text/javascript" src="/Home/js/gwc.js"></script>
+
     <div class="postion">
         <span class="fl">全部 > 美妆个护 > 香水 > 迪奥 > 迪奥真我香水</span>
-    </div>    
+    </div>  
+                      <!-- 隐藏域区域 -->
+    <input type="hidden" value="{{$data->id}}" class="goodsid">     
     <div class="content">
-                            
+         
         <div id="tsShopContainer">
             <div id="tsImgS"><a href="{{$data->pic}}" title="Images" class="MagicZoom" id="MagicZoom"><img src="{{$data->pic}}" width="390" height="390" /></a></div>
             <div id="tsPicContainer">
@@ -32,22 +36,22 @@
                {{$data->gdesc}}
             </div>
             <div class="des_price">
-                本店价格：<b>￥{{$data->gnum}}</b><br />
+                本店价格：￥<b class="money">{{$data->price}}</b><br />
             </div>
             <div class="des_choice">
                 <span class="fl">型号选择：</span>
                 <ul>
-                    <li class="checked">30ml<div class="ch_img"></div></li>
-                    <li>50ml<div class="ch_img"></div></li>
-                    <li>100ml<div class="ch_img"></div></li>
+                    <li class="checked size1">30ml<div class="ch_img"></div></li>
+                    <li class="size2">50ml<div class="ch_img"></div></li>
+                    <li class="size3">100ml<div class="ch_img"></div></li>
                 </ul>
             </div>
             <div class="des_choice">
                 <span class="fl">颜色选择：</span>
                 <ul>
-                    <li>红色<div class="ch_img"></div></li>
-                    <li class="checked">白色<div class="ch_img"></div></li>
-                    <li>黑色<div class="ch_img"></div></li>
+                    <li class="color1">红色<div class="ch_img"></div></li>
+                    <li class="checked color2">白色<div class="ch_img"></div></li>
+                    <li class="color3">黑色<div class="ch_img"></div></li>
                 </ul>
             </div>
             <div class="des_share">
@@ -66,10 +70,13 @@
             <div class="des_join">
                 <div class="j_nums">
                     <input type="text" value="1" name="" class="n_ipt" />
-                    <input type="button" value="" onclick="addUpdate(jq(this));" class="n_btn_1" />
-                    <input type="button" value="" onclick="jianUpdate(jq(this));" class="n_btn_2" />   
+                    <input type="button" value=""  class="n_btn_1" />
+                    <input type="button" value=""  class="n_btn_2" />   
                 </div>
-                <span class="fl"><a onclick="ShowDiv_1('MyDiv1','fade1')"><img src="/Home/images/j_car.png" /></a></span>
+                <div class="j_nums" style="line-height: 45px;border: 0px solid red">
+                库存 :<span class="ignum">{{$data->gnum-1}}</span>件  
+                </div>
+                <span class="fl ifl" id="gwc"><a href="javascript:;"><img src="/Home/images/j_car.png" /></a></span>
             </div>            
         </div>    
         
@@ -121,12 +128,12 @@
                     <td width="40"><img src="/Home/images/suc.png" /></td>
                     <td>
                         <span style="color:#3e3e3e; font-size:18px; font-weight:bold;">宝贝已成功添加到购物车</span><br />
-                        购物车共有1种宝贝（3件） &nbsp; &nbsp; 合计：1120元
+                        购物车共有<span class="icar"></span>件宝贝&nbsp; &nbsp; 合计：<span class="imoney"></span>元
                     </td>
                   </tr>
                   <tr height="50" valign="bottom">
                     <td>&nbsp;</td>
-                    <td><a href="/Home/#" class="b_sure">去购物车结算</a><a href="/Home/#" class="b_buy">继续购物</a></td>
+                    <td><a href="/home/car" class="b_sure">去购物车结算</a><a href="/home/goods/index/{{$data->cid}}" class="b_buy">继续购物</a></td>
                   </tr>
                 </table>
                     

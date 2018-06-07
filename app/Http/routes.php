@@ -90,15 +90,16 @@ Route::controller('/home/goods','Home\GoodsController');
 
 
 
-//文章管理路由
+//后台文章管理路由
 Route::resource('/admin/articles','Admin\ArticlesController');
 //前台文章详情页
 Route::get('/home/articles/detail','Admin\ArticlesController@detail');
-//轮播ajax上传
+//后台轮播ajax上传
 Route::post('/admin/carousel/test1','Admin\CarouselController@test1');
-//轮播管理路由
+//后台轮播管理路由
 Route::resource('/admin/carousel','Admin\CarouselController');
-
+//前台购物车
+Route::resource('/home/car','Home\CarController');
 
 
 
