@@ -1476,7 +1476,7 @@ ul.brand li .name span{
 }
 
 .pro_des{
-	width:520px; height:490px; overflow:hidden; float:left; display:inline; margin-left:60px;
+	width:520px; height:560px; overflow:hidden; float:left; display:inline; margin-left:180px;
 }
 .des_name{
 	height:50px; line-height:25px; overflow:hidden; color:#888888; font-size:14px;

@@ -8,8 +8,10 @@ $(function(){
 		$showIMg = $show.find('img'),//放大镜图片
 		$ImgList = that.find('.con-FangDa-ImgList > li >img'),
 		multiple = $show.width()/$Drag.width();
-
+		
 		$imgCon.mousemove(function(e){
+			$('.des_choice ul').css('display','none');
+			$('.d_sh').css('display','none');
 			$Drag.css('display','block');
 			$show.css('display','block');
 		    //获取坐标的两种方法
@@ -34,7 +36,10 @@ $(function(){
 		   	$showIMg.css({marginLeft:-multiple*iX+'px',marginTop:-multiple*iY+'px'});
 		   	//return false;
 		});
+	
 		$imgCon.mouseout(function(){
+			$('.des_choice ul').css('display','block');
+			$('.d_sh').css('display','block');
 		   	$Drag.css('display','none');
 			$show.css('display','none');
 		});

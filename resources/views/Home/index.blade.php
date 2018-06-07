@@ -30,13 +30,15 @@
     <script type="text/javascript" src="/Home/js/n_nav.js"></script>
     <?php $none = 'none'; ?>
     @endif
-    <link rel="stylesheet" type="text/css" href="/Home/css/ShopShow.css" />
-    <link rel="stylesheet" type="text/css" href="/Home/css/MagicZoom.css" />
-    <script type="text/javascript" src="/Home/js/MagicZoom.js"></script>
-    <script type="text/javascript" src="/Home/js/num.js">
+    <!-- 放大镜 -->
+    <link rel="stylesheet" type="text/css" href="/Home/fanda/css/zzsc.css">
+    <script type="text/javascript" class="library" src="/Home/fanda/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" class="library" src="/Home/fanda/js/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" class="library" src="/Home/fanda/js/zzsc.js"></script>
+    <!-- 商品详情加减 -->
+     <script type="text/javascript" src="/Home/js/num.js">
         var jq = jQuery.noConflict();
     </script>
-     <script type="text/javascript" src="/Home/js/shade.js"></script>
 <title>尤洪</title>
 </head>
 <body>  
@@ -353,6 +355,4 @@
     </div>
     <!--End Footer End -->    
 </body>
-<script src="/Home/js/ShopShow.js"></script>
-
 </html>

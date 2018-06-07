@@ -5,35 +5,40 @@
     </div>    
     <div class="content">
                             
-        <div id="tsShopContainer">
-            <div id="tsImgS"><a href="{{$data->pic}}" title="Images" class="MagicZoom" id="MagicZoom"><img src="{{$data->pic}}" width="390" height="390" /></a></div>
-            <div id="tsPicContainer">
-                <div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
-                <div id="tsImgSCon">
-                    <ul>
-                        <li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img src="{{$data->pic}}" tsImgS="{{$data->pic}}" width="79" height="79" /></li>
-                        <li onclick="showPic(1)" rel="MagicZoom"><img src="/Home/images/ps2.jpg" tsImgS="/Home/images/ps2.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(2)" rel="MagicZoom"><img src="/Home/images/ps3.jpg" tsImgS="/Home/images/ps3.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(3)" rel="MagicZoom"><img src="/Home/images/ps4.jpg" tsImgS="/Home/images/ps4.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(4)" rel="MagicZoom"><img src="/Home/images/ps1.jpg" tsImgS="/Home/images/ps1.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(5)" rel="MagicZoom"><img src="/Home/images/ps2.jpg" tsImgS="/Home/images/ps2.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(6)" rel="MagicZoom"><img src="/Home/images/ps3.jpg" tsImgS="/Home/images/ps3.jpg" width="79" height="79" /></li>
-                        <li onclick="showPic(7)" rel="MagicZoom"><img src="/Home/images/ps4.jpg" tsImgS="/Home/images/ps4.jpg" width="79" height="79" /></li>
-                    </ul>
-                </div>
-                <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
-            </div>
-            <img class="MagicZoomLoading" width="16" height="16" src="/Home/images/loading.gif" alt="Loading..." />               
+      <div class="con-FangDa" id="fangdajing">
+          <div class="con-fangDaIMg">
+            <!-- 正常显示的图片-->
+            <img src="{{$data->pic}}">
+            <!-- 滑块-->  
+            <div class="magnifyingBegin"></div>
+            <!-- 放大镜显示的图片 -->
+            <div class="magnifyingShow"><img src="{{$data->pic}}"></div>
+          </div>
+          
+          <ul class="con-FangDa-ImgList">
+            <!-- 图片显示列表 -->
+            <li class="active"><img src="{{$data->pic}}" data-bigimg="{{$data->pic}}"></li>
+            <li><img src="/Home/fanda/images/thumb/2.jpg" data-bigimg="/Home/fanda/images/big/2.jpg"></li>
+            <li><img src="/Home/fanda/images/thumb/3.jpg" data-bigimg="/Home/fanda/images/big/3.jpg"></li>
+            <li><img src="/Home/fanda/images/thumb/4.jpg" data-bigimg="/Home/fanda/images/big/4.jpg"></li>
+          </ul>
         </div>
         
         <div class="pro_des">
             <div class="des_name">
                 <p>{{$data->gname}}</p>
-               {{$data->gdesc}}
             </div>
+            <br>
+            <br>
+            <h4>商品描述</h4>
+            <div>
+                <h5><p>{{$data->gdesc}}</p></h5>
+            </div>
+            <br>
             <div class="des_price">
-                本店价格：<b>￥{{$data->gnum}}</b><br />
+                本店价格：<b>￥{{$data->price}}</b><br />
             </div>
+            <br>
             <div class="des_choice">
                 <span class="fl">型号选择：</span>
                 <ul>
@@ -133,4 +138,16 @@
             </div>
         </div>
     </div>
+<script type="text/javascript">
+    $('.des_choice:eq(0) ul li').click(function(){
+        // alert('');
+        $('.des_choice:eq(0) ul li').removeClass('checked');
+        $(this).addClass('checked');
+    });
+    $('.des_choice:eq(1) ul li').click(function(){
+        // alert('');
+        $('.des_choice:eq(1) ul li').removeClass('checked');
+        $(this).addClass('checked');
+    });
+</script>
 @endsection
