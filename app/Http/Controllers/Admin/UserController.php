@@ -84,6 +84,8 @@ class UserController extends Controller
             'username' => $request -> input('username',''),
             'pic' =>$res1,
             'upwd' => md5($request -> input('upwd','').$salt),
+            'email' => $request -> input('email',''),
+            'tel' => $request -> input('tel',''),
             // 'upwd' => Hash::make($request -> input('upwd','')),
             'token' => str_random(50),      //随机50位加密字符串
             ];

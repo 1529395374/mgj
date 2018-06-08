@@ -113,7 +113,24 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="/Home/Login.html">登录</a>&nbsp; <a href="/Home/Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="/Home/#">我的订单</a>&nbsp;|</span>
+        	<span class="fl">
+            <?php if(empty(session('log'))): ?>
+                你好，请<a href="/home/login">登录</a>&nbsp; 
+            <?php else: ?>
+                你好，
+                @if(!empty(session('log')->email))
+                       {{session('log')->email}}
+                @elseif(!empty(session('log')->username))  
+                        {{session('log')->username}}  
+                @elseif(!empty(session('log')->tel))  
+                        {{session('log')->tel}}  
+                @endif
+                <a href="/home/login/logout">退出</a>&nbsp; 
+                <a href="">个人信息</a>&nbsp;
+            <?php endif; ?>
+                <a href="/home/register/create" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
+                <a href="">我的订单</a>&nbsp;|
+            </span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="/Home/#">收藏夹</a>
@@ -122,7 +139,6 @@
                         <div class="ss_list_c">
                         	<ul>
                             	<li><a href="/Home/#">我的收藏夹</a></li>
-                                <li><a href="/Home/#">我的收藏夹</a></li>
                             </ul>
                         </div>
                     </div>     
@@ -134,20 +150,6 @@
                         <div class="ss_list_c">
                         	<ul>
                             	<li><a href="/Home/#">客户服务</a></li>
-                                <li><a href="/Home/#">客户服务</a></li>
-                                <li><a href="/Home/#">客户服务</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-                <div class="ss_list">
-                	<a href="/Home/#">网站导航</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="/Home/#">网站导航</a></li>
-                                <li><a href="/Home/#">网站导航</a></li>
                             </ul>
                         </div>
                     </div>    
@@ -335,17 +337,17 @@
     <div class="btmbg">
 		<div class="btm">
         	备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com   Copyright © 2015-2018 尤洪商城网 All Rights Reserved. 复制必究 , Technical Support: Dgg Group <br />
-
+            <h6><u>友情链接</u></h6>
+             @foreach($link as $k=>$v)
+                    <a href="http://{{$v->lurl}}"><img src="{{$v->limg}}" style="width:60px; height:40px;"></a><a href="http://{{$v->lurl}}"></a>
+             @endforeach
 
 
 
 
 	</div>
 
-            <h6><u>友情链接</u></h6>
-             @foreach($link as $k=>$v)
-                    <a href="http://{{$v->lurl}}"><img src="{{$v->limg}}" style="width:60px; height:40px;"></a><a href="http://{{$v->lurl}}"></a>
-             @endforeach
+            
         </div>
 
 
