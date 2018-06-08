@@ -18,13 +18,22 @@ class GoodsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // 获取数据
-        $data = Goods::get();
-        // dump($data);
+        // 获取分页数据
+        $count = $request->input('count') ? $request->input('count') : '5';
+        // 获取搜索数据
+        $gname = $request->input('gname');
+        if($gname){
+            // 获取数据
+            $data = Goods::where('gname','like','%'.$gname.'%')->paginate($count); 
+        }else{
+            // 获取数据
+            $data = Goods::paginate($count);
+        }
+        
         // 渲染视图
-        return view('Admin/Goods/index',['data'=>$data]);
+        return view('Admin/Goods/index',['data'=>$data,'count'=>$count,'gname'=>$gname]);
     }
 
     /** 商品添加

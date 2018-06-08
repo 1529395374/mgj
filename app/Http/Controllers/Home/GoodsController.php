@@ -31,13 +31,26 @@ class GoodsController extends Controller
         }
         // 加上本类
         $arr[] = $id;
-        // dd($arr);
     	// 查询数据
         $data = Goods::whereIn('cid',$arr)->get();
-        // dd($data);        
 
+        
+        // 查询父类
+        $cate_pic = Cate::find($id);
+        // 转换成数组
+        $cate_pics = explode(',',$cate_pic->path);
+        // 把本类id加到数组中
+        array_splice($cate_pics,-1,1,$id);
+        // 查询父类名称(包括本类)
+        $cate_pics = Cate::select('cname')->whereIn('cid',$cate_pics)->get();
+        // 声明变量
+        $set = '';
+        // 遍历查询到的名称并拼接指定格式到变量中
+        foreach($cate_pics as $v){
+            $set .=' > '.$v->cname;
+        }
         // 显示数据
-        return view('/Home/Goods/index',['data'=>$data]);
+        return view('/Home/Goods/index',['data'=>$data,'set'=>$set]);
 
     }
 

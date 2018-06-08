@@ -9,7 +9,7 @@
     <script type="text/javascript" src="/Home/js/gwc.js"></script>
 
     <div class="postion">
-        <span class="fl">全部 > 美妆个护 > 香水 > 迪奥 > 迪奥真我香水</span>
+        <span class="fl"></span>
     </div>  
                       <!-- 隐藏域区域 -->
     <input type="hidden" value="{{$data->id}}" class="goodsid">     

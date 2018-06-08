@@ -14,6 +14,21 @@
             <span><i class="icon-table"></i> 商品列表</span>
         </div>
         <div class="mws-panel-body no-padding">
+            <form action="/admin/goods" method="get" style="background-color:#ddd" >
+                <div class="dataTables_length" style="font-size:20px;text-align:conter">
+                    <label>显示:
+                        <select name="count">
+                            <option value="5" @if( $count == 5 ) selected @endif >5</option>
+                            <option value="10" @if( $count == 10 ) selected @endif >10</option>
+                            <option value="15" @if( $count == 15 ) selected @endif >15</option>
+                        </select> 页
+                    <div style="float:right;margin-right:5px">
+                      </label >
+                    关键字: <input type="text" name="gname" value="{{$gname}}"><input type="submit" value="搜索" class="btn btn-success">  
+                    </div>
+                    
+                </div>
+            </form>
             <table class="mws-datatable-fn mws-table" style="text-align:center">
                 <thead>
                     <tr>
@@ -53,6 +68,9 @@
                 @endforeach
                 </tbody>
             </table>
+        </div>
+        <div class="page">
+            {!! $data->appends(['gname'=>$gname])->render() !!}
         </div>
     </div>
     <!-- Panels End -->

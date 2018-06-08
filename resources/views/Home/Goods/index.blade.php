@@ -1,7 +1,7 @@
 @extends('Home.index')
 @section('content')
 <div class="postion">
-    <span class="fl">全部 > 美妆个护 > 香水 > 香奈儿</span>
+    <span class="fl">全部 {{$set}} </span>
 </div>
 
 <div class="content mar_20">
