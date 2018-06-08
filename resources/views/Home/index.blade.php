@@ -123,7 +123,24 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="/Home/Login.html">登录</a>&nbsp; <a href="/Home/Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="/Home/#">我的订单</a>&nbsp;|</span>
+        	<span class="fl">
+            <?php if(empty(session('log'))): ?>
+                你好，请<a href="/home/login">登录</a>&nbsp; 
+            <?php else: ?>
+                你好，
+                @if(!empty(session('log')->email))
+                       {{session('log')->email}}
+                @elseif(!empty(session('log')->username))  
+                        {{session('log')->username}}  
+                @elseif(!empty(session('log')->tel))  
+                        {{session('log')->tel}}  
+                @endif
+                <a href="/home/login/logout">退出</a>&nbsp; 
+                <a href="">个人信息</a>&nbsp;
+            <?php endif; ?>
+                <a href="/home/register/create" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
+                <a href="">我的订单</a>&nbsp;|
+            </span>
         	<span class="ss">
             	<div class="ss_list">
                 	<a href="/Home/#">收藏夹</a>
@@ -132,7 +149,6 @@
                         <div class="ss_list_c">
                         	<ul>
                             	<li><a href="/Home/#">我的收藏夹</a></li>
-                                <li><a href="/Home/#">我的收藏夹</a></li>
                             </ul>
                         </div>
                     </div>     
@@ -144,8 +160,6 @@
                         <div class="ss_list_c">
                         	<ul>
                             	<li><a href="/Home/#">客户服务</a></li>
-                                <li><a href="/Home/#">客户服务</a></li>
-                                <li><a href="/Home/#">客户服务</a></li>
                             </ul>
                         </div>
                     </div>    
