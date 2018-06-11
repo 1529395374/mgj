@@ -50,10 +50,25 @@
                         </div>
                         <div class="mws-form-row">
                             <label class="mws-form-label">商品描述</label>
-                            <div class="mws-form-item">
-                                <textarea rows="" cols="" class="medium" name="gdesc">{{old('gdesc')}}</textarea>
+                            <div class="mws-form-item" style="width:494px;">
+                                <script id="gdesc" type="text/plain" >
+                                    {{old('gdesc')}}
+                                </script>   
                             </div>
                         </div>
+                        <!-- 配置文件 -->
+                        <script type="text/javascript" src="/Admin/utf8-php/ueditor.config.js"></script>
+                        <!-- 编辑器源码文件 -->
+                        <script type="text/javascript" src="/Admin/utf8-php/ueditor.all.js"></script>
+                        <!-- 实例化编辑器 -->
+                        <script type="text/javascript">
+                            var ue = UE.getEditor('gdesc',{
+                                toolbars: [
+                                            ['fullscreen', 'source', 'undo', 'redo'],
+                                            ['bold', 'italic', 'underline', 'fontborder', 'strikethrough','blockquote', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc','simpleupload']
+                                        ]
+                            });
+                        </script>
                     <div class="mws-button-row">
                         <input type="submit" value="提交" class="btn btn-primary">
                     </div>

@@ -51,7 +51,7 @@
                         <td><div class="wrap">{{$v->gname}}</div></td>
                         <td><img src="{{$v->pic}}" style="width:100px;"></td>
                         <td>{{$v->price}}</td>
-                        <td><div class="wrap">{{$v->gdesc}}</div></td>
+                        <td><div class="wrap">{!! $v->gdesc !!}</div></td>
                         <td>{{$v->gnum}}</td>
                         <td>
                             {{$v->status == 1 ? '上架' : '下架'}}
