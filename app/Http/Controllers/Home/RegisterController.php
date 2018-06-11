@@ -36,10 +36,10 @@ class RegisterController extends Controller
     public function tel_code(Request $request)
     {
 
-        $tel = $request -> input('tel','17710592492');
-        $pcode = rand(100000,999999);
+        $tel = $request -> input('tel');
+        $pcode = rand(1000,9999);
         session(['tel_code'=>$pcode]);
-        $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&format=json&account=C86411171&password=0138286c93ca1eaf0a18b6faa1b62d2f&mobile='.$tel.'&content=您的验证码是：'.$pcode.'。请不要把验证码泄露给其他人。';
+        $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&format=json&account=C97148218&password=adb80ff808acd959f3fe4e427841fbc7&mobile='.$tel.'&content=您的验证码是：'.$pcode.'。请不要把验证码泄露给其他人。';
         $curlHandler = curl_init(); //curl  模拟http请求
         curl_setopt($curlHandler, CURLOPT_URL, $url);
         curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, 1);
@@ -78,7 +78,8 @@ class RegisterController extends Controller
                 // 密码加盐
                 $salt = 'asd!@#$%^&*()_+';
                 //获取手机号
-                $tel = $request -> input('tel','17710592492');
+                $tel = $request -> input('tel','');
+                
                 $code = $request -> input('tel_code','');
                 $pass = md5($request -> input('password','123456').$salt);
                 $token = str_random(50);
@@ -88,7 +89,10 @@ class RegisterController extends Controller
                 $info = new Userinfo;
                 $info -> uid = $id;
                 $info -> auth = $request -> input('auth','2');
-                $info -> tel = $request -> input('tel','17710592492');
+                $info -> tel = $request -> input('tel','');
+                $info -> age = $request -> input('age','');
+                $info -> sex = $request -> input('sex','w');
+                $info -> addr = $request -> input('addr','');
                 $res = $info->save();
 
 
@@ -99,7 +103,7 @@ class RegisterController extends Controller
             if($id && $res){
                 DB::commit();   //提交事务
                 //注册成功
-                return redirect('/home/register/create')->with('success','注册成功');
+                return redirect('/home/login')->with('success','注册成功');
             }else{
                 DB::rollBack(); //回滚事务
                 //注册失败
@@ -135,6 +139,9 @@ class RegisterController extends Controller
             $info -> uid = $id;
             $info -> auth = $request -> input('auth','2');
             $info -> email = $request -> input('email','');
+            $info -> age = $request -> input('age','');
+            $info -> sex = $request -> input('sex','w');
+            $info -> addr = $request -> input('addr','w');
             $res = $info->save();
 
             if($id && $res){

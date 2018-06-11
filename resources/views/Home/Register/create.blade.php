@@ -84,7 +84,7 @@
 
 						                 <div class="user-phone">
 											<label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
-											<input type="tel" name="tel" id="phone" placeholder="请输入手机号">
+											<input type="text" name="tel" id="tel" placeholder="请输入手机号">
 						                 </div>																			
 											<div class="verification">
 												<label for="code"><i class="am-icon-code-fork"></i></label>

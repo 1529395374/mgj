@@ -126,7 +126,7 @@
                         {{session('log')->tel}}  
                 @endif
                 <a href="/home/login/logout">退出</a>&nbsp; 
-                <a href="">个人信息</a>&nbsp;
+                <a href="/home/info">个人信息</a>&nbsp;
             <?php endif; ?>
                 <a href="/home/register/create" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
                 <a href="">我的订单</a>&nbsp;|
