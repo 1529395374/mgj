@@ -7,7 +7,6 @@
         <tr>
             <th>手机号</th>
             <th>邮箱</th>
-            <th>IP地址</th>
             <th>创建时间</th>
             <th>修改时间</th>
             <th>权限</th>
@@ -21,7 +20,6 @@
         <tr>
             <td>{{ $data->userinfo->tel }}</td>
             <td>{{ $data->userinfo->email }}</td>
-            <td>{{ $data->userinfo->ip }}</td>
             <td>{{ $data->userinfo->created_at }}</td>
             <td>{{ $data->userinfo->updated_at }}</td>
             <td>

@@ -100,7 +100,7 @@ class UserController extends Controller
         $userinfo -> email = $request -> input('email','');
         $userinfo -> addr = $request -> input('addr','');
         $userinfo -> sex = $request -> input('sex','m');
-        $userinfo -> ip = $_SERVER['REMOTE_ADDR'];
+        // $userinfo -> ip = $_SERVER['REMOTE_ADDR'];
         $res = $userinfo -> save();
         if($uid && $res){
             DB::commit();   //提交事务

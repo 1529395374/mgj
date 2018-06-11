@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\User;
+use App\Models\Userinfo;
 class UserinfoController extends Controller
 {
     /**
@@ -71,7 +72,41 @@ class UserinfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        
+        //接受form表单提交的值修改并保存信息
+        $data = $request -> except('_method','_token');
+        //dd($data);
+       
+        $info = Userinfo::where('uid',$id)->first();
+        // dd($info);
+        $info->tel = $data['tel'];
+        $info->age = $data['age'];
+        $info->addr = $data['addr'];
+        $info->sex = $data['sex'];
+        $info->email = $data['email'];
+        $uid = $info['uid'];
+
+        $user = User::where('id',$uid)->first();
+        $user->username = $data['username'];
+        $user->email = $data['email'];
+        $user->tel = $data['tel'];
+        // dd($user);
+        $user->save();
+        $info->save();
+        //存sesiion
+        $user->age = $info->age;
+        $user->sex = $info->sex;
+        $user->addr = $info->addr;
+        // dd($user);
+        if($user || $info){
+            $request->session()->put('log', $user);
+            
+            return redirect('/')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败');
+        }
+
     }
 
     /**

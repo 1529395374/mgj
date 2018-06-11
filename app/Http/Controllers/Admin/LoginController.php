@@ -90,6 +90,6 @@ class LoginController extends Controller
     {
         
         $request->session()->pull('login', false);
-        return redirect('/')->with('success','退出成功');
+        return redirect('/admin/login')->with('success','退出成功');
     }
 }
