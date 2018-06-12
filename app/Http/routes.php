@@ -49,7 +49,10 @@ Route::post('/home/login/dologin','Home\LoginController@dologin'); //1:1 	//前�
 Route::get('/home/login',function(){return view('/home/login/index');});	//加载前台登录页面
 Route::get('/home/login/logout','Home\LoginController@logout'); 			//1:1//前台退出
 Route::resource('/home/info','Home\UserinfoController');					//个人中心
-
+//前台收货地址路由
+Route::resource('/home/address','Home\AddressController');
+//设置默认地址 路由
+Route::get('/home/address/dafault/{id}','Home\AddressController@dafault');
 
 
 
