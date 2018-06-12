@@ -53,6 +53,17 @@ Route::resource('/home/info','Home\UserinfoController');					//个人中心
 Route::resource('/home/address','Home\AddressController');
 //设置默认地址 路由
 Route::get('/home/address/dafault/{id}','Home\AddressController@dafault');
+
+//收藏删除路由
+Route::get('/home/collect/sc','Home\CollectController@sc');
+//收藏列表显示页路由
+Route::get('/home/collect/sclist','Home\CollectController@sclist');
+//前台收藏商品控制路由
+Route::resource('/home/collect','Home\CollectController');
+
+
+
+
 Route::post('/home/userinfo/uploads','Home\UserinfoController@uploads'); 			//头像上传
 
 

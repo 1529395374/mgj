@@ -40,7 +40,7 @@
      <script type="text/javascript" src="/Home/js/num.js">
         var jq = jQuery.noConflict();
     </script>
-    <link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+
     <script src="/layui/layui.all.js" type="text/javascript"></script>
     <script type="text/javascript" src="/layui/jquery-3.2.1.min.js"></script>
 <title>尤洪</title>
@@ -167,12 +167,12 @@
             </span>
         	<span class="ss">
             	<div class="ss_list">
-                	<a href="/Home/#">收藏夹</a>
+                	<a href="/home/collect/sclist">收藏夹</a>
                     <div class="ss_list_bg">
                     	<div class="s_city_t"></div>
                         <div class="ss_list_c">
                         	<ul>
-                            	<li><a href="/Home/#">我的收藏夹</a></li>
+                            	<li><a href="/home/collect/sclist">我的收藏夹</a></li>
                             </ul>
                         </div>
                     </div>     

@@ -77,7 +77,7 @@
                         <a href="/Home/#"><img src="/Home/images/sh_5.gif" /></a>
                     </div>
                 </div>
-                <div class="d_care"><a onclick="ShowDiv('MyDiv','fade')">关注商品</a></div>
+                <div class="d_care"><a href="/home/collect?id={{ $data->id }}">关注商品</a></div>
             </div>
             <div class="des_join">
                 <div class="j_nums">
@@ -111,12 +111,12 @@
                     <td width="40"><img src="/Home/images/suc.png" /></td>
                     <td>
                         <span style="color:#3e3e3e; font-size:18px; font-weight:bold;">您已成功收藏该商品</span><br />
-                        <a href="/Home/#">查看我的关注 >></a>
+                        <a href="#">查看我的关注 >></a>
                     </td>
                   </tr>
                   <tr height="50" valign="bottom">
                     <td>&nbsp;</td>
-                    <td><a href="/Home/#" class="b_sure">确定</a></td>
+                    <td><a href="/home/goods/store/{{ $data->id }}" class="b_sure">确定</a></td>
                   </tr>
                 </table>
                     
