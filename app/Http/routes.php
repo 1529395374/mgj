@@ -38,13 +38,9 @@ Route::group(['middleware'=>'login'],function(){
 	//后台用户管理
 	Route::resource('/admin/user','Admin\UserController');
 });
-
-Route::get('/home/register/jihuo','Home\RegisterController@jihuo');		// 激活账号
-
-Route::get('/home/register/tel','Home\RegisterController@tel_code');	// 验证码
-Route::resource('/home/register','Home\RegisterController');			// 注册create
-
-
+Route::get('/home/register/jihuo','Home\RegisterController@jihuo');			// 激活账号
+Route::get('/home/register/tel','Home\RegisterController@tel_code');		// 验证码
+Route::resource('/home/register','Home\RegisterController');				// 注册create
 Route::post('/home/login/dologin','Home\LoginController@dologin'); //1:1 	//前台登录
 Route::get('/home/login',function(){return view('/home/login/index');});	//加载前台登录页面
 Route::get('/home/login/logout','Home\LoginController@logout'); 			//1:1//前台退出
