@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Models\Userinfo;
 use App\User;
+
 class LoginController extends Controller
 {
     /**
@@ -30,16 +31,12 @@ class LoginController extends Controller
         // dd($data);
         $user = $data['user'];
         $upwd = md5($data['upwd'].$salt);
-
         //检测邮箱
         $res = User::where('email', '=', $user)->where('upwd', '=', $upwd)->first();
-        
         //检测手机号
         $res1 = User::where('tel', '=', $user)->where('upwd', '=', $upwd)->first();
         //检测用户名
         $res2 = User::where('username', '=', $user)->where('upwd', '=', $upwd)->first();
-        
-        
 
         if($res){
                     //检测是否激活
@@ -47,6 +44,7 @@ class LoginController extends Controller
                     return back()->with('error','账号未激活');
                 }else{
                     $request->session()->put('log', $res);
+                    //dd(session('log'));
                     return redirect('/')->with('success','登录成功');
                 }
          }elseif($res1){
@@ -57,12 +55,7 @@ class LoginController extends Controller
             return redirect('/')->with('success','登录成功');
         }else{
             return back()->with('error','信息输入不正确');
-        }
-
-
-        
-
-        
+        }     
         
     }
 

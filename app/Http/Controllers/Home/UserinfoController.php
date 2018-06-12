@@ -20,37 +20,7 @@ class UserinfoController extends Controller
         return view('home.info.userinfo');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -91,6 +61,10 @@ class UserinfoController extends Controller
         $user->username = $data['username'];
         $user->email = $data['email'];
         $user->tel = $data['tel'];
+        //判断图片是否更改
+        if (!empty($data['pic'])) {
+                $user->pic = $data['pic'];
+          }
         // dd($user);
         $user->save();
         $info->save();
@@ -99,6 +73,7 @@ class UserinfoController extends Controller
         $user->sex = $info->sex;
         $user->addr = $info->addr;
         // dd($user);
+        
         if($user || $info){
             $request->session()->put('log', $user);
             
@@ -109,14 +84,43 @@ class UserinfoController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function uploads(Request $request)
     {
-        //
+
+        // 检测是否有文件上传
+       if($request -> hasFile('pic')){
+            // 创建文件上传对象
+            $pic = $request -> file('pic');
+            // 处理图片 路径和图片的名称
+            $dir_name = './uploads/'.date('Ymd');
+            $file_name = str_random(20);
+            // 获取后缀
+            $hz = $pic ->getClientOriginalExtension();
+            $name = $file_name.'.'.$hz;//拼接路径便于存储
+            $res = $pic -> move($dir_name,$name);
+
+            if($res){
+                $arr = [
+                    'code'=>1,
+                    'msg'=>'上传成功',
+                    'data'=>[
+                        'src'=> ltrim($dir_name.'/'.$name, '.')
+                    ],
+                ];
+            }else{
+                $arr = [
+                    'code'=>0,
+                    'msg'=>'上传失败',
+                    'data'=>[
+                        'src'=> ''
+                    ],
+                ];
+            }
+       }
+       //处理返回值
+       echo json_encode($arr);
+       
     }
+
+    
 }

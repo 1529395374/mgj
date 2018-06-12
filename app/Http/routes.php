@@ -53,6 +53,7 @@ Route::resource('/home/info','Home\UserinfoController');					//个人中心
 Route::resource('/home/address','Home\AddressController');
 //设置默认地址 路由
 Route::get('/home/address/dafault/{id}','Home\AddressController@dafault');
+Route::post('/home/userinfo/uploads','Home\UserinfoController@uploads'); 			//头像上传
 
 
 

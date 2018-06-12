@@ -15,6 +15,7 @@
 		<script src="/Home/regis/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<script src="/Home/regis/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 		<script type="text/javascript" src="/layui/layui.all.js"></script>
+		
 	</head>
 
 	<body>
@@ -29,21 +30,30 @@
 				<div class="login-box">
 							@if(session('success'))
 				                <div class="mws-form-message success">
-				                    {{ session('success') }}
+					                <script>
+					                	layer.msg(" {{ session('success')}} ");
+					                </script>
 				                </div>
 				            @endif
 				            @if(session('error'))
 				                <div class="mws-form-message error">
-				                    {{ session('error') }}
+				                      <script>
+				                        layer.msg(" {{session('error')}} ")
+				                      </script>
 				                </div>
-				            @endif
+				             @endif
 				            @if (count($errors) > 0)
 				                <div class="mws-form-message error">
-				                    <ul>
-				                        @foreach ($errors->all() as $error)
-				                            <li>{{ $error }}</li>
-				                        @endforeach
-				                    </ul>
+		                            <script>
+										layer.open({
+											  type: 1,
+											  title: false,
+											  closeBtn: 0,
+											  shadeClose: true,
+											  skin: 'yourclass',
+											  content: "<p><span>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</span></p>"
+											});
+		                            </script>
 				                </div>
 				            @endif
 						<div class="am-tabs" id="doc-my-tabs">

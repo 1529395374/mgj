@@ -12,12 +12,14 @@
 
     <link rel="stylesheet" href="/Home/regis/AmazeUI-2.4.2/assets/css/amazeui.css" />
     <link href="/Home/regis/css/dlstyle.css" rel="stylesheet" type="text/css">
+    <link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <script src="/layui/layui.all.js" type="text/javascript"></script>
   </head>
 
   <body>
 
     <div class="login-boxtitle">
-      <a href="home.html"><img alt="logo" src="/Home/regis/images/logobig.png" /></a>
+      <a href="/"><img alt="logo" src="/Home/regis/images/logobig.png" /></a>
     </div>
 
     <div class="login-banner">
@@ -30,17 +32,24 @@
                   </div>
               @endif
               @if(session('error'))
-                  <div class="mws-form-message error">
-                      {{ session('error') }}
-                  </div>
+                <div class="mws-form-message error">
+                      <script>
+                        layer.msg("{{session('error')}}")
+                      </script>
+                </div>
               @endif
               @if (count($errors) > 0)
                   <div class="mws-form-message error">
-                      <ul>
-                          @foreach ($errors->all() as $error)
-                              <li>{{ $error }}</li>
-                          @endforeach
-                      </ul>
+                      <script>
+                        layer.open({
+                            type: 1,
+                            title: false,
+                            closeBtn: 0,
+                            shadeClose: true,
+                            skin: 'yourclass',
+                            content: "<p><span><ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></span></p>"
+                          });
+                      </script>
                   </div>
               @endif
               <h3 class="title">登录商城</h3>
@@ -67,7 +76,7 @@
             <div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
                 <a href="#" class="am-fr">忘记密码</a>
-                <a href="register.html" class="zcnext am-fr am-btn-default">注册</a>
+                <a href="/home/register" class="zcnext am-fr am-btn-default">注册</a>
                 <br />
             </div>
                 
