@@ -9,17 +9,21 @@
                     @endforeach
                 </ul>   
                 <div class="op_btns clearfix">
-                    <a href="#" class="op_btn op_prev"><span></span></a>
-                    <a href="#" class="op_btn op_next"><span></span></a>
+                    <!-- <a href="#" class="op_btn op_prev"><span></span></a> -->
+                    <!-- <a href="#" class="op_btn op_next"><span></span></a> -->
                 </div>        
             </div>
         </div>
-        <script type="text/javascript">
+       <script type="text/javascript">
         var jq = jQuery.noConflict();
         (function(){
             $(".bxslider").bxSlider({
-                auto:true,
-                prevSelector:jq(".top_slide_wrap .op_prev")[0],nextSelector:jq(".top_slide_wrap .op_next")[0]
+                
+                      displaySlideQty:4,//显示li的个数 
+                      moveSlideQty: 4,//移动li的个数  
+                      captions: true,//自动控制 
+                      auto: true, 
+                      //隐藏左右按钮 
             });
         })();
         </script>

@@ -149,7 +149,7 @@ table.c_tab tr th{
 	width:141px; height:38px; line-height:38px; background:url(../images/car.png) no-repeat 10px center; background-color:#f6f6f6; float:right; margin-top:50px; border:1px solid #d9d9d9; position:relative;
 }
 .car_t{
-	width:95px; height:38px; overflow:hidden; background:url(../images/d_arrow.png) no-repeat right center; font-size:14px; margin-left:38px; cursor:pointer;
+	width:95px; height:38px; overflow:hidden; background:url() no-repeat right center; font-size:14px; margin-left:38px; cursor:pointer;
 }
 .car_t span{
 	color:#ff4e00;
@@ -2272,7 +2272,7 @@ table.car_tab tr td.car_th{
 	width:73px; height:73px; overflow:hidden; float:left; display:inline; margin-right:10px; border:1px solid #eaeaea;
 }
 .c_num{
-	width:84px; height:21px; overflow:hidden; border:1px solid #cccccc;
+	width:86px; height:21px; overflow:hidden; border:1px solid #cccccc;
 }
 .car_ipt{
 	width:42px; height:21px; line-height:21px\9; background-color:#FFF; color:#555555; font-size:14px; text-align:center; font-family:"Microsoft YaHei"; float:left; padding:0; border:0;

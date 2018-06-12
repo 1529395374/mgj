@@ -17,9 +17,10 @@ class CarController extends Controller
      */
     public function index()
     {
-         // 获取所有购物车商品id与数量
-        $tmpgood = Car::where('uid',session('id'))->lists('num','gid');
-        //dump($tmpgood);
+        if (session('log')) {
+           // 获取所有购物车商品id与数量
+        $tmpgood = Car::where('uid',session('log')->id)->lists('num','gid');
+        // dump($tmpgood);
         // 获取所有商品id
         $tmp = [];
         foreach ($tmpgood as $key => $value) {
@@ -29,9 +30,14 @@ class CarController extends Controller
             $tmp[$key]-> num = $value;
             // array_push($tmp[$key],$value);
         }  
-        // dump($tmp);
+        // dd($tmp);
         // die;
         return view('home.car.index',['tmp'=>$tmp]);
+        }else{
+            $tmp = [];
+            return view('home.car.index',['tmp'=>$tmp]);
+        }
+        
     }
 
     /**
@@ -88,7 +94,7 @@ class CarController extends Controller
 
         } else {
 
-            // $car -> uid = session('id');
+            $car -> uid = session('log')->id;
             $res =  $car -> save();
             //商品信息
             $good = new Goods();
@@ -150,6 +156,91 @@ class CarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //执行删除
+        $res = Car::where('gid',$id)->where('uid',session('log')->id)->delete();
+        if ($res) {
+                $arr = ['status'=>1,'msg'=>'删除成功'];
+            } else {
+                $arr = ['status'=>0,'msg'=>'删除失败'];
+            }
+            return $arr;
+    }
+
+
+    /**
+     * 批量删除.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteall(Request $request)
+    {
+        $all = $request -> except('_token','_method');
+        // return $all['id'];
+        //执行删除
+        $res = Car::where('uid',session('log')->id)->whereIn('gid',$all['id'])->delete();
+
+        if ($res) {
+                $arr = ['status'=>1,'msg'=>'删除成功'];
+            } else {
+                $arr = ['status'=>0,'msg'=>'删除失败'];
+            }
+            return $arr;
+    }
+
+
+    /**
+     * 修改购物车数量
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function Changenum(Request $request)
+    {
+        $all = $request -> except('_token','_method');
+       // return $all;
+       
+       // 修改数据
+       $car = Car::where('gid',$all['id'])->where('uid',session('log')->id)->first();
+       // dd($car);
+       $res = $car -> update(['num'=>$all['num']]);
+    
+        if ($res) {
+                $arr = ['status'=>1];
+            } else {
+                $arr = ['status'=>0,'msg'=>'超出购买范围'];
+            }
+            return $arr;
+    }
+
+
+    public function rebuy(Request $request)
+    {  
+        // 用户收货地址
+        $address = Address::where('id',session('log')->id)->where('status',1)->first();
+        if (empty($address)) {
+            return redirect('/home/address/create')->with('error','请添加收货地址');
+        }
+       // 接受用户提交的数据
+        $all = $request -> except('_token','_method');
+        // 商品id
+        $gid = $all['gid'];
+        $gid = explode(',',$gid);
+        // 商品数量
+        $num = $all['gnum'];
+        $num = explode(',',$num);
+        // 合并一个数组
+        $tmpgood = array_combine($gid,$num);
+        //压入商品数量
+        $tmp = [];
+        foreach ($tmpgood as $key => $value) {
+            //获取商品信息
+            $tmp[$key] = Goods::find($key);
+            //压入商品数量
+            $tmp[$key]-> num = $value;
+            // array_push($tmp[$key],$value);
+        } 
+        //商品总价
+        return view('home.car.rebuy',['address'=>$address,'tmp'=>$tmp,'total'=>$all['total']]);
     }
 }
