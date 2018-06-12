@@ -28,7 +28,9 @@
         <div class="login-box">
              @if(session('success'))
                   <div class="mws-form-message success">
-                      {{ session('success') }}
+                      <script>
+                          layer.msg("{{session('success')}}")
+                      </script>
                   </div>
               @endif
               @if(session('error'))

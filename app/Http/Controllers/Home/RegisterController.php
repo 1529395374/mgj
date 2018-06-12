@@ -148,7 +148,7 @@ class RegisterController extends Controller
                 DB::commit();   //提交事务
                 self::sendEmail($email,$id,$token);
                 //注册成功
-                return redirect('/home/login')->with('success','注册成功');
+                return redirect('/home/login')->with('success','注册成功,请到邮箱中激活该账号！');
                 
             }else{
                 DB::rollBack(); //回滚事务
@@ -192,6 +192,7 @@ class RegisterController extends Controller
         }else{
             dd('激活失败');
         }
+        
     }
 
     //封装  邮箱发送
@@ -204,5 +205,5 @@ class RegisterController extends Controller
         });
 
     }
-    
+
 }

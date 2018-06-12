@@ -40,7 +40,6 @@
      <script type="text/javascript" src="/Home/js/num.js">
         var jq = jQuery.noConflict();
     </script>
-    <link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
     <script src="/layui/layui.all.js" type="text/javascript"></script>
     <script type="text/javascript" src="/layui/jquery-3.2.1.min.js"></script>
 <title>尤洪</title>
