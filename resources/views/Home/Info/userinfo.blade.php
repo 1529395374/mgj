@@ -41,33 +41,66 @@
                 </ul>
             </div>
         </div>
-        
+       
         <div class="m_right">
             <div class="mem_t">账号信息</div>
-            <form action="/home/info/{{ session('log')->id }}" method="post" enctype="multipart/form-data">
-            {{ csrf_field() }}
-            {{ method_field('PUT') }}
-            
                 <div class="m_des">
-                    <table border="0" style="width:870px; line-height:22px;" cellspacing="0" cellpadding="0">
-                      <tr valign="top">
-
-                        <td width="115">
-                            <input type="file"  name="pic" value="" >
-                            <img src="images/user.jpg" width="90" height="90" />
-                        </td>
-                       
-                      </tr>
-                    </table>    
+                    <form action="/home/info/{{ session('log')->id }}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    {{ method_field('PUT') }}
+                            <table border="0" style="width:870px; line-height:22px;" cellspacing="0" cellpadding="0">
+                          <tr valign="top">
+                            <td width="115">
+                                <label for="test1">
+                                    <img id="pic" src="{{ session('log')->pic }}" width="90" height="90" />
+                                </label>
+                                <button type="button" class="layui-btn" id="test1" style="display:none;">
+                                  <i class="layui-icon">&#xe67c;</i>上传图片
+                                </button>
+                                <input type="hidden" name="pic" value="" id="hidden">
+                                <?php echo csrf_field(); ?>
+                                <script>
+                                    layui.use('upload', function(){
+                                      var upload = layui.upload;//文件上传对象
+                                       
+                                      //执行实例
+                                      var uploadInst = upload.render({
+                                        elem: '#test1' //绑定元素
+                                        ,url: '/home/userinfo/uploads' //上传接口
+                                        ,method: 'POST'
+                                        ,data: {'_token':$('input[type=hidden]').eq(0).val()}
+                                        ,field: 'pic'
+                                        ,done: function(res){
+                                          //上传完毕回调
+                                          if(res.code == 1){
+                                            layer.msg(res.msg);
+                                            $('#pic').attr('src',res.data.src);
+                                            $('#hidden').attr('value',res.data.src);
+                                          }else{
+                                            layer.msg(res.msg);
+                                          }
+                                        }
+                                        
+                                      });
+                                    });
+                                </script>
+                                <script>
+                                $('#pic').mouseover(function(){
+                                    layer.tips('点击更换头像', '#pic');
+                                })
+                                </script>
+                            </td>
+                          </tr>
+                        </table> 
                 </div>
-            
+        
                 <table border="0" class="mon_tab" style="width:870px; margin-bottom:20px;" cellspacing="0" cellpadding="0">
                       <tr>
                         <td width="40%">姓&nbsp; &nbsp; 名：<input type="text" name="username" value="{{ session('log')->username }}" /></td>
                         <td width="60%">性&nbsp; &nbsp; 别：
-                            <input type="radio" name="sex" @if(!empty(session('log')) && session('log')->sex == 'm')checked @endif value="m" />男
-                            <input type="radio" name="sex" @if(!empty(session('log')) && session('log')->sex == 'w')checked @endif value="w" />女
-                            <input type="radio" name="sex" @if(!empty(session('log')) && session('log')->sex == 'x')checked @endif value="x" />保密
+                            <input type="radio" name="sex" @if(!empty(session('log')->userinfo) && session('log')->userinfo->sex == 'm')checked @endif value="m" />男
+                            <input type="radio" name="sex" @if(!empty(session('log')->userinfo) && session('log')->userinfo->sex == 'w')checked @endif value="w" />女
+                            <input type="radio" name="sex" @if(!empty(session('log')->userinfo) && session('log')->userinfo->sex == 'x')checked @endif value="x" />保密
                         </td>
                       </tr>
                       <tr>
@@ -75,8 +108,8 @@
                         <td>邮&nbsp; &nbsp; 箱：<input type="text" name="email" value="{{ session('log')->email }}" /></td>
                       </tr>
                       <tr>
-                        <td>地&nbsp; &nbsp; 址：<input type="text" name="addr" value="{{ session('log')->addr }}" /></td>
-                        <td>年&nbsp; &nbsp; 龄：<input type="text" name="age" value="{{ session('log')->age }}" /></td>
+                        <td>地&nbsp; &nbsp; 址：<input type="text" name="addr" value="{{ session('log')->userinfo->addr }}" /></td>
+                        <td>年&nbsp; &nbsp; 龄：<input type="text" name="age" value="{{ session('log')->userinfo->age }}" /></td>
                       </tr>
                       <tr height="30">
                         <td>&nbsp;</td>

@@ -40,6 +40,9 @@
      <script type="text/javascript" src="/Home/js/num.js">
         var jq = jQuery.noConflict();
     </script>
+    <link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <script src="/layui/layui.all.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/layui/jquery-3.2.1.min.js"></script>
 <title>尤洪</title>
 </head>
 <body>  
@@ -126,20 +129,20 @@
         	<span class="fl">
             <?php if(empty(session('log'))): ?>
                 你好，请<a href="/home/login">登录</a>&nbsp; 
+                <a href="/home/register/create" style="color:#ff4e00;">免费注册</a>
             <?php else: ?>
                 你好，
                 @if(!empty(session('log')->email))
-                       {{session('log')->email}}
-                @elseif(!empty(session('log')->username))  
-                        {{session('log')->username}}  
-                @elseif(!empty(session('log')->tel))  
-                        {{session('log')->tel}}  
+                       {{ substr_replace(session('log')->email,'****',4,4) }}
+                @elseif(!empty(session('log')->tel))
+                        {{ substr_replace(session('log')->tel,'****',4,4) }}         
+                @elseif(!empty(session('log')->username))
+                        {{session('log')->username}}
                 @endif
                 <a href="/home/login/logout">退出</a>&nbsp; 
                 <a href="/home/info">个人信息</a>&nbsp;
-            <?php endif; ?>
-                <a href="/home/register/create" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
                 <a href="">我的订单</a>&nbsp;|
+            <?php endif; ?> 
             </span>
         	<span class="ss">
             	<div class="ss_list">

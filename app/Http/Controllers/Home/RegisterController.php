@@ -148,7 +148,7 @@ class RegisterController extends Controller
                 DB::commit();   //提交事务
                 self::sendEmail($email,$id,$token);
                 //注册成功
-                return redirect('/home/register/create')->with('success','注册成功');
+                return redirect('/home/login')->with('success','注册成功');
                 
             }else{
                 DB::rollBack(); //回滚事务
