@@ -152,11 +152,11 @@
             <?php else: ?>
                 你好，
                 @if(!empty(session('log')->email))
-                       {{ substr_replace(session('log')->email,'****',4,4) }}
+                       <a href="/home/info" class="username">{{ substr_replace(session('log')->email,'****',4,4) }}</a>
                 @elseif(!empty(session('log')->tel))
-                        {{ substr_replace(session('log')->tel,'****',4,4) }}         
+                        <a href="/home/info" class="username">{{ substr_replace(session('log')->tel,'****',4,4) }}</a>
                 @elseif(!empty(session('log')->username))
-                        {{session('log')->username}}
+                        <a href="/home/info" class="username">{{session('log')->username}}</a>
                 @endif
                 <a href="/home/login/logout">退出</a>&nbsp; 
                 <a href="/home/info">个人信息</a>&nbsp;

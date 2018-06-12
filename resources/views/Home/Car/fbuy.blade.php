@@ -24,7 +24,7 @@
               </tr>
               <tr>
                 <td>
-                	<a href="#">首页</a> &nbsp; &nbsp; <a href="#"><span style="color: red;text-decoration: underline;">查看我的订单</span></a>
+                	<a href="#">首页</a> &nbsp; &nbsp; <a href="/home/order/index"><span style="color: red;text-decoration: underline;">查看我的订单</span></a>
                 </td>
               </tr>
             </tbody></table>        	
