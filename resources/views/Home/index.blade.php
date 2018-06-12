@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="csrf-token" content="{{ csrf_token() }}">
-	<link type="text/css" rel="stylesheet" href="/Home/css/style.css" />   
+	<link type="text/css" rel="stylesheet" href="/Home/css/style.css" />
     <script type="text/javascript" src="/Home/js/jquery-1.11.1.min_044d0927.js"></script>
 	<script type="text/javascript" src="/Home/js/jquery.bxslider_e88acd1b.js"></script>
-    
+
     <script type="text/javascript" src="/Home/js/jquery-1.8.2.min.js"></script>
-    <script type="text/javascript" src="/Home/js/menu.js"></script>    
-        
+    <script type="text/javascript" src="/Home/js/menu.js"></script>
+
 	<script type="text/javascript" src="/Home/js/select.js"></script>
-    
+
 	<script type="text/javascript" src="/Home/js/lrscroll.js"></script>
-    
+
     <script type="text/javascript" src="/Home/js/iban.js"></script>
     <script type="text/javascript" src="/Home/js/fban.js"></script>
     <script type="text/javascript" src="/Home/js/f_ban.js"></script>
@@ -21,8 +21,8 @@
     <script type="text/javascript" src="/Home/js/bban.js"></script>
     <script type="text/javascript" src="/Home/js/hban.js"></script>
     <script type="text/javascript" src="/Home/js/tban.js"></script>
-    
 
+    <script src="/layui/layui.all.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/Home/js/lrscroll_1.js"></script>
     <link rel="stylesheet" type="text/css" href="/Home/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
@@ -42,7 +42,28 @@
     </script>
 <title>尤洪</title>
 </head>
-<body>  
+<body>
+<!-- 显示自动验证的错误信息 -->
+@if (count($errors) > 0)
+    <div class="mws-form-message error">
+        @foreach ($errors->all() as $error)
+            <script>
+                layer.alert('{{ $error }}');
+            </script>
+        @endforeach
+    </div>
+@endif
+<!-- 读取模版的提示信息 -->
+@if(session('success'))
+    <script>
+        layer.alert("{{session('success')}}");
+    </script>
+@endif
+@if(session('error'))
+    <script>
+        layer.alert("{{session('error')}}");
+    </script>
+@endif
 <!--Begin Header Begin-->
 <div class="soubg">
 	<div class="sou">
@@ -136,7 +157,7 @@
                         {{session('log')->tel}}  
                 @endif
                 <a href="/home/login/logout">退出</a>&nbsp; 
-                <a href="/home/info">个人信息</a>&nbsp;
+                <a href="/home/address">个人信息</a>&nbsp;
             <?php endif; ?>
                 <a href="/home/register/create" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
                 <a href="">我的订单</a>&nbsp;|
