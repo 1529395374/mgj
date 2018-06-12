@@ -6,18 +6,21 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\User;
-use App\Models\Userinfo;
-class UserinfoController extends Controller
+use App\Models\Order;
+
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getIndex()
     {
-        return view('home.info.userinfo');
+        // 订单列表
+        $data = Order::get();
+        // 渲染模板
+        return view('/Home/Order/index',['data'=>$data]);
     }
 
     /**
@@ -36,9 +39,11 @@ class UserinfoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function getStore($id)
     {
-        //
+        $data = Order::where('wlid',$id)->get();
+        // dd($data->id);
+        return view('Home/Order/store',['data'=>$data]);
     }
 
     /**
@@ -60,7 +65,7 @@ class UserinfoController extends Controller
      */
     public function edit($id)
     {
-        return view('home.info.userinfo'); 
+        //
     }
 
     /**
@@ -72,41 +77,7 @@ class UserinfoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        
-        //接受form表单提交的值修改并保存信息
-        $data = $request -> except('_method','_token');
-        //dd($data);
-       
-        $info = Userinfo::where('uid',$id)->first();
-        // dd($info);
-        $info->tel = $data['tel'];
-        $info->age = $data['age'];
-        $info->addr = $data['addr'];
-        $info->sex = $data['sex'];
-        $info->email = $data['email'];
-        $uid = $info['uid'];
-
-        $user = User::where('id',$uid)->first();
-        $user->username = $data['username'];
-        $user->email = $data['email'];
-        $user->tel = $data['tel'];
-        // dd($user);
-        $user->save();
-        $info->save();
-        //存sesiion
-        $user->age = $info->age;
-        $user->sex = $info->sex;
-        $user->addr = $info->addr;
-        // dd($user);
-        if($user || $info){
-            $request->session()->put('log', $user);
-            
-            return redirect('/')->with('success','修改成功');
-        }else{
-            return back()->with('error','修改失败');
-        }
-
+        //
     }
 
     /**

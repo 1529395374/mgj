@@ -49,7 +49,10 @@ Route::post('/home/login/dologin','Home\LoginController@dologin'); //1:1 	//前�
 Route::get('/home/login',function(){return view('/home/login/index');});	//加载前台登录页面
 Route::get('/home/login/logout','Home\LoginController@logout'); 			//1:1//前台退出
 Route::resource('/home/info','Home\UserinfoController');					//个人中心
-
+//前台收货地址路由
+Route::resource('/home/address','Home\AddressController');
+//设置默认地址 路由
+Route::get('/home/address/dafault/{id}','Home\AddressController@dafault');
 
 
 
@@ -74,6 +77,8 @@ Route::resource('/admin/goods','Admin\GoodsController');
 Route::get('/home/goods/search','Home\GoodsController@search');
 // 前台商品管理
 Route::controller('/home/goods','Home\GoodsController');
+// 前台订单
+Route::controller('/home/order','Home\OrderController');
 
 
 
@@ -116,6 +121,8 @@ Route::resource('/home/car','Home\CarController');
 
 // 添加订单页
 Route::get('/home/orders/add','Home\OrdersController@add');
+// 订单成功页
+Route::get('/home/orders/orders_success','Home\OrdersController@orders_success');
 
 
 

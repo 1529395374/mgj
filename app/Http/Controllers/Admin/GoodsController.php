@@ -58,11 +58,14 @@ class GoodsController extends Controller
     	// 表单验证
         $this->validate($request,[
             'gname' => 'unique:goods',
+            'pic' => 'required',  //验证商品图片
         ],[
             'gname.unique' => '分类名称已存在',
+            'pic.required' => '商品图片必填',   
         ]);
         // 获取表单数据
-        $data = $request->except(['_token']);
+        $data = $request->except(['_token','editorValue']);
+        $data['gdesc'] = $request->input('editorValue');
 
         // 检测是否有文件上传
         if($request -> hasFile('pic')){      
@@ -136,7 +139,8 @@ class GoodsController extends Controller
             'gname.unique' => '分类名称已存在',
         ]);
         // 获取表单数据
-        $data = $request->except(['_token','_method']); 
+        $data = $request->except(['_token','_method','editorValue','cs_pic']); 
+        $data['gdesc'] = $request->input('editorValue');
         // 检测是否有文件上传
         if($request -> hasFile('pic')){
             // 创建文件上传对象
@@ -153,8 +157,9 @@ class GoodsController extends Controller
             $pic -> move('.'.$dir_name,$temp_name);
             // 赋值图片路径
             $data['pic'] = $name;
+        }else{
+            $data['pic'] = $request->input('cs_pic');
         }
-        
         // 修改添加
         $res = Goods::where('id',$id)->update($data);
         if($res){

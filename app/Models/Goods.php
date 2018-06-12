@@ -20,4 +20,9 @@ class Goods extends Model
     {
       return $this->hasOne('App\Models\Home\Car','gid');
     }
+
+    public function goods_order()
+   {
+      return $this->hasOne('App\Models\Home\Orders','gid');
+   }
 }

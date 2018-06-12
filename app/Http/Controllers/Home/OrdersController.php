@@ -8,7 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Home\Car;
 use App\Models\Goods;
-use App\Models\Home\Order;
+use App\Models\Home\Orders;
+use App\Models\Home\Address;
 class OrdersController extends Controller
 {
     /**
@@ -25,18 +26,18 @@ class OrdersController extends Controller
        $gnum = explode(',',$all['gnum']);
        $tmp = array_combine($gid, $gnum);
        // 收货人信息
-       $person = Address::where('defaultAdd',1)->where('uid',session('log')->id)->first();
+       $person = Address::where('status',1)->where('id',session('log')->id)->first();
        //生成订单
        $created_at = time()+rand(10000,99999);
        foreach ($tmp as $key => $value) {
-          $order = new Order();
+          $order = new Orders();
            $oid = $order -> insertGetId([
            'gnum' => $value,
            'gid' => $key,
            'money' => $all['total'],
            'wlid' => $created_at,
            'uid' => session('log')->id,
-           'uname' => session('username'),
+           'uname' => session('log')->username,
            'uphone' => $person->phone,
            'utname' => $person->name,
            'uaddress' => $person->address,
@@ -45,7 +46,7 @@ class OrdersController extends Controller
        }
        if($oid) {
            // return view('home.car.fbuy',['data'=>$data]);
-           return redirect('/home/order/order_success?id='.$oid);
+           return redirect('/home/orders/orders_success?id='.$oid);
        } else {
            return back()->with('error', '网络延时,请稍后再试');
        }
@@ -57,19 +58,19 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function order_success(Request $request)
+    public function orders_success(Request $request)
     {
         //加载订单成功页面
         $id = $request -> only('id');
         $wlid = Orders::find($id['id'])->wlid;
         $money = Orders::find($id['id'])->money;
-        $order = Orders::where('wlid',$wlid)->get();
+        $orders = Orders::where('wlid',$wlid)->get();
         //删除购物车的信息
         //商品id
         $gid = [];
         //商品数量
         $gnum = [];
-        foreach ($order as $key => $value) {
+        foreach ($orders as $key => $value) {
           $gid[] = $value->gid;
           $gnum[] = $value->gnum;
         }
@@ -80,7 +81,10 @@ class OrdersController extends Controller
         foreach ($gnums as $key => $value) {
           $tmp = Goods::where('id',$key)->first();
           $tmpnum = $tmp->gnum;
-          $res2 = $tmp->update(['gnum'=>$tmpnum-$value]);  
+          $tmp -> gnum = $tmpnum-$value;
+          $res2 = $tmp->save();
+          // $res2 = $tmp->update(['gnum'=>$tmpnum-$value]);
+          
         }
         return view('home.car.fbuy',['wlid'=>$wlid,'money'=>$money]);   
     }

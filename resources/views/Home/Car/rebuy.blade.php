@@ -27,7 +27,7 @@
                     {{$v->gname}}
                 </td>
                 <input type="hidden" value="{{$v->id}}">
-                <td align="center">{{$v->num}}</td>
+                <td align="center"><b>{{$v->num}}</b></td>
                 <td align="center" style="color:#ff4e00;">￥<span>{{$v->price*$v->num}}</span></td>
               </tr>
               @endforeach
@@ -40,30 +40,30 @@
             </table>
             
             <div class="two_t">
-              <span class="fr"><a href="#">修改</a></span>收货人信息
+              <span class="fr"><a href="/home/address">修改</a></span>收货人信息
             </div>
             <table border="0" class="peo_tab" style="width:1110px;" cellspacing="0" cellpadding="0">
               <tr>
-                <td class="p_td" width="160">商品名称</td>
-                <td width="395">海贼王</td>
-                <td class="p_td" width="160">电子邮件</td>
-                <td width="395">12345678@qq.com</td>
+                <td class="p_td" width="160">收货人</td>
+                <td width="395">{{$address->name}}</td>
+                <td class="p_td" width="160">电话</td>
+                <td width="395">{{$address->phone}}</td>
               </tr>
               <tr>
-                <td class="p_td">详细信息</td>
-                <td>四川省成都市武侯区</td>
-                <td class="p_td">邮政编码</td>
-                <td>6011111</td>
+                <td class="p_td">收货地址</td>
+                <td>{{$address->address}}</td>
+                <td class="p_td">电子邮箱</td>
+                <td>{{$address->email}}</td>
               </tr>
             </table>
             <table border="0" style="width:900px; margin-top:20px;" cellspacing="0" cellpadding="0">
               <tr height="70">
                 <td align="right">
-                  <b style="font-size:14px;">应付款金额：<span style="font-size:22px; color:#ff4e00;" class="itotal">￥{{$total}}</span></b>
+                  <b style="font-size:14px;">应付款金额：￥<span style="font-size:22px; color:#ff4e00;" class="itotal">{{$total}}</span></b>
                 </td>
               </tr>
               <tr height="70">
-                <td align="right"><a href="#"><img src="images/btn_sure.gif" /></a></td>
+                <td align="right"><a href="#" class="fbuy"><img src="/Home/images/btn_sure.gif" /></a></td>
               </tr>
             </table>
         </div>

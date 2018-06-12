@@ -217,10 +217,10 @@ class CarController extends Controller
     public function rebuy(Request $request)
     {  
         // 用户收货地址
-        // $address = Address::where('id',session('log')->id)->where('status',1)->first();
-        // if (empty($address)) {
-        //     return redirect('/home/address/edit')->with('error','请添加收货地址');
-        // }
+        $address = Address::where('id',session('log')->id)->where('status',1)->first();
+        if (empty($address)) {
+            return redirect('/home/address/create')->with('error','请添加收货地址');
+        }
        // 接受用户提交的数据
         $all = $request -> except('_token','_method');
         // 商品id
@@ -241,6 +241,6 @@ class CarController extends Controller
             // array_push($tmp[$key],$value);
         } 
         //商品总价
-        return view('home.car.rebuy',['tmp'=>$tmp,'total'=>$all['total']]);
+        return view('home.car.rebuy',['address'=>$address,'tmp'=>$tmp,'total'=>$all['total']]);
     }
 }
