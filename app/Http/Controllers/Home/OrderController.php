@@ -39,9 +39,11 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function getStore($id)
     {
-        //
+        $data = Order::where('wlid',$id)->get();
+        // dd($data->id);
+        return view('Home/Order/store',['data'=>$data]);
     }
 
     /**

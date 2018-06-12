@@ -25,13 +25,14 @@
     </div>
     <div class="m_right" style="min-height:437px">
         <p></p>
-        <div class="mem_tit">我的订单</div>
+        <div class="mem_tit">订单详情</div>
         <table border="0" class="order_tab" style="width:930px; text-align:center; margin-bottom:30px;" cellspacing="0" cellpadding="0">
           <tr>           
             <td width="20%">订单号</td>
-            <td width="25%">下单时间</td>
-            <td width="15%">订单总金额</td>
-            <td width="15%">订单状态</td>
+            <td width="15%">商品名称</td>
+            <td width="15%">商品单价</td>
+            <td width="15%">商品数量</td>
+            <td width="10%">商品描述</td>
             <td width="25%">操作</td>
           </tr>
           
@@ -51,10 +52,8 @@
                     {{ '订单已取消' }}
                 @endif
             </td>
-            <td>
-                <a href="" class="btn btn-warning">取消订单</a>
-                <a href="/home/order/store/{{$v->wlid}}" class="btn btn-info">查看详细信息</a>
-            </td>
+            <td></td>
+            <td></td>
           </tr>
         @endforeach
         </table>
