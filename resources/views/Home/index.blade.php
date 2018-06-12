@@ -40,7 +40,6 @@
         var jq = jQuery.noConflict();
     </script>
     <script src="/layui/layui.all.js" type="text/javascript"></script>
-    <script type="text/javascript" src="/layui/jquery-3.2.1.min.js"></script>
 <title>尤洪</title>
 </head>
 <body>

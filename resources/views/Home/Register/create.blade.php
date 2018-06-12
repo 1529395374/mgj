@@ -92,7 +92,7 @@
 
 						                 <div class="user-phone">
 											<label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
-											<input type="text" name="tel" id="tel" placeholder="请输入手机号">
+											<input type="text" name="tel" id="tel" placeholder="请输入手机号"><span id=""></span>
 						                 </div>																			
 											<div class="verification">
 												<label for="code"><i class="am-icon-code-fork"></i></label>
@@ -115,7 +115,7 @@
 								
 									<hr>
 								</div>
-
+								
 								<script>
 									$(function() {
 									    $('#doc-my-tabs').tabs();
