@@ -1,4 +1,3 @@
-
 $(function(){
 	//添加购物车
 	//定义变量
@@ -45,10 +44,10 @@ $(function(){
 				layer.msg('请选择尺寸大小', {icon: 5, time: 2000});      
 				return false;      
 				 }
-			/*if($('#iusername').length <= 0){
+			if($('.username').length <= 0){
 				layer.msg('请先登录', {icon: 5, time: 2000});    
 				return false;  
-			}*/
+			}
 				 //发送ajax判断是否添加成功
 				 $.ajaxSetup({
         			headers: {

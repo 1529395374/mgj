@@ -3,16 +3,13 @@
 namespace App\Models\Home;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Car extends Model
+class Orders extends Model
 {
-    public $table = 'car';
+    use SoftDeletes;
+    public $table = 'orders';
     public $primaryKey = 'id';
     public $timestamps = true;
     public $guarded = [];
-
-    public function car_good()
-    {
-    	return $this->hasOne('App\Models\Goods','id');
-    }
 }

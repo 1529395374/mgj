@@ -101,8 +101,21 @@ Route::get('/home/articles/detail','Admin\ArticlesController@detail');
 Route::post('/admin/carousel/test1','Admin\CarouselController@test1');
 //后台轮播管理路由
 Route::resource('/admin/carousel','Admin\CarouselController');
+//确认订单
+Route::get('/home/car/rebuy','Home\CarController@rebuy');
+//更改购物车数量
+Route::post('/home/car/changenum','Home\CarController@changenum');
+//批量删除购物车商品
+Route::post('/home/car/deleteall','Home\CarController@deleteall');
 //前台购物车
 Route::resource('/home/car','Home\CarController');
+
+
+
+
+
+// 添加订单页
+Route::get('/home/orders/add','Home\OrdersController@add');
 
 
 

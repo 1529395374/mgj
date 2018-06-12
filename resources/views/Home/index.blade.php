@@ -23,6 +23,9 @@
     <script type="text/javascript" src="/Home/js/tban.js"></script>
     
 
+
+    <!-- <link rel="stylesheet" type="text/css" href="/layui/css/layui.css" media="screen"> -->
+    <script src="/layui/layui.all.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/Home/js/lrscroll_1.js"></script>
     <link rel="stylesheet" type="text/css" href="/Home/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script type="text/javascript" src="/Home/bootstrap-3.3.7-dist/js/jquery-3.3.1.min.js"></script>
@@ -129,11 +132,11 @@
             <?php else: ?>
                 你好，
                 @if(!empty(session('log')->email))
-                       {{session('log')->email}}
+                    <span class="username">{{session('log')->email}}</span>
                 @elseif(!empty(session('log')->username))  
-                        {{session('log')->username}}  
+                    <span class="username">{{session('log')->username}}</span>
                 @elseif(!empty(session('log')->tel))  
-                        {{session('log')->tel}}  
+                    <span class="username">{{session('log')->tel}}</span>
                 @endif
                 <a href="/home/login/logout">退出</a>&nbsp; 
                 <a href="">个人信息</a>&nbsp;
@@ -181,24 +184,9 @@
         </form>                      
         <span class="fl"><a href="/Home/#">咖啡</a><a href="/Home/#">iphone 6S</a><a href="/Home/#">新鲜美食</a><a href="/Home/#">蛋糕</a><a href="/Home/#">日用品</a><a href="/Home/#">连衣裙</a></span>
     </div>
-    <div class="i_car">
-    	<div class="car_t">购物车 [ <span>3</span> ]</div>
-        <div class="car_bg">
-       		<!--Begin 购物车未登录 Begin-->
-        	<div class="un_login">还未登录！<a href="/Home/Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
-            <!--End 购物车未登录 End-->
-            <!--Begin 购物车已登录 Begin-->
-            <ul class="cars">
-            	<li>
-                	<div class="img"><a href="/Home/#"><img src="/Home/images/car1.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="/Home/#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-            </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
-            <div class="price_a"><a href="/Home/#">去购物车结算</a></div>
-            <!--End 购物车已登录 End-->
-        </div>
+    <div class="i_car" style="width:110px">
+    	<a href="/home/car" title=""><div class="car_t">购物车</div></a>
+
     </div>
 </div>
 <!--End Header End--> 
