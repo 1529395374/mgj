@@ -172,17 +172,17 @@ class RegisterController extends Controller
         //  通过id获取插入的数据
         $user = Register::find($id);
         if(!$user){
-            dd('链接非法');
+            return redirect('/home/register/create')->with('success','链接非法');
         }
         //  dump($user);
         //  检测链接的有效性
         if($token != $user->token){
-            dd('链接无效,请联系客服');
+            return redirect('/home/register/create')->with('success','链接无效,请联系客服');
         }
         //  检测该账号是否激活
         if($user->status == 2){
 
-            dd('该账号已经被激活，请不要重复激活');
+            return redirect('/home/register/create')->with('success','该账号已经激活,请勿重复激活');
         }
         // 激活
         $user -> status = 2;
@@ -190,9 +190,9 @@ class RegisterController extends Controller
         if($user -> save()){
             // 激活成功
            
-            dd('激活成功');
+            return redirect('/home/login')->with('success','激活成功,请登录');
         }else{
-            dd('激活失败');
+            return redirect('/home/register/create')->with('success','激活失败,请从新注册并激活');
         }
         
     }

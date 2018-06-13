@@ -50,8 +50,8 @@ Route::resource('/home/address','Home\AddressController');
 //设置默认地址 路由
 Route::get('/home/address/dafault/{id}','Home\AddressController@dafault');
 Route::post('/home/userinfo/uploads','Home\UserinfoController@uploads'); 			//头像上传
-
-
+//账户安全(隐式)修改手机号 邮箱 密码
+Route::controller('/home/safe','Home\SafeController');
 
 
 
