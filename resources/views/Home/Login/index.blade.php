@@ -12,7 +12,6 @@
 
     <link rel="stylesheet" href="/Home/regis/AmazeUI-2.4.2/assets/css/amazeui.css" />
     <link href="/Home/regis/css/dlstyle.css" rel="stylesheet" type="text/css">
-    <link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
     <script src="/layui/layui.all.js" type="text/javascript"></script>
   </head>
 
@@ -28,7 +27,9 @@
         <div class="login-box">
              @if(session('success'))
                   <div class="mws-form-message success">
-                      {{ session('success') }}
+                      <script>
+                          layer.msg("{{session('success')}}")
+                      </script>
                   </div>
               @endif
               @if(session('error'))
@@ -79,16 +80,6 @@
                 <a href="/home/register" class="zcnext am-fr am-btn-default">注册</a>
                 <br />
             </div>
-                
-            <div class="partner">   
-                <h3>合作账号</h3>
-              <div class="am-btn-group">
-                <li><a href="#"><i class="am-icon-qq am-icon-sm"></i><span>QQ登录</span></a></li>
-                <li><a href="#"><i class="am-icon-weibo am-icon-sm"></i><span>微博登录</span> </a></li>
-                <li><a href="#"><i class="am-icon-weixin am-icon-sm"></i><span>微信登录</span> </a></li>
-              </div>
-            </div>  
-
         </div>
       </div>
     </div>

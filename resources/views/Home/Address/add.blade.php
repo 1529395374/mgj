@@ -16,7 +16,7 @@
                 <div class="left_m_t t_bg2">会员中心</div>
                 <ul>
                     <li><a href="" class="now">用户信息</a></li>
-                    <li><a href="Member_Collect.html">我的收藏</a></li>
+                    <li><a href="/home/collect/sclist">我的收藏</a></li>
                     <li><a href="Member_Msg.html">我的留言</a></li>
                     <li><a href="Member_Links.html">推广链接</a></li>
                     <li><a href="#">我的评论</a></li>

@@ -38,13 +38,9 @@ Route::group(['middleware'=>'login'],function(){
 	//后台用户管理
 	Route::resource('/admin/user','Admin\UserController');
 });
-
-Route::get('/home/register/jihuo','Home\RegisterController@jihuo');		// 激活账号
-
-Route::get('/home/register/tel','Home\RegisterController@tel_code');	// 验证码
-Route::resource('/home/register','Home\RegisterController');			// 注册create
-
-
+Route::get('/home/register/jihuo','Home\RegisterController@jihuo');			// 激活账号
+Route::get('/home/register/tel','Home\RegisterController@tel_code');		// 验证码
+Route::resource('/home/register','Home\RegisterController');				// 注册create
 Route::post('/home/login/dologin','Home\LoginController@dologin'); //1:1 	//前台登录
 Route::get('/home/login',function(){return view('/home/login/index');});	//加载前台登录页面
 Route::get('/home/login/logout','Home\LoginController@logout'); 			//1:1//前台退出
@@ -118,8 +114,23 @@ Route::get('/home/articles/detail','Admin\ArticlesController@detail');
 Route::post('/admin/carousel/test1','Admin\CarouselController@test1');
 //后台轮播管理路由
 Route::resource('/admin/carousel','Admin\CarouselController');
+//确认订单
+Route::get('/home/car/rebuy','Home\CarController@rebuy');
+//更改购物车数量
+Route::post('/home/car/changenum','Home\CarController@changenum');
+//批量删除购物车商品
+Route::post('/home/car/deleteall','Home\CarController@deleteall');
 //前台购物车
 Route::resource('/home/car','Home\CarController');
+
+
+
+
+
+// 添加订单页
+Route::get('/home/orders/add','Home\OrdersController@add');
+// 订单成功页
+Route::get('/home/orders/orders_success','Home\OrdersController@orders_success');
 
 
 

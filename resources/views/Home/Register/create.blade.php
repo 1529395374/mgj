@@ -9,13 +9,12 @@
 		<meta name="format-detection" content="teletel=no">
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
-
+	
 		<link rel="stylesheet" href="/Home/regis/AmazeUI-2.4.2/assets/css/amazeui.min.css" />
 		<link href="/Home/regis/css/dlstyle.css" rel="stylesheet" type="text/css">
 		<script src="/Home/regis/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<script src="/Home/regis/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 		<script type="text/javascript" src="/layui/layui.all.js"></script>
-		
 	</head>
 
 	<body>
@@ -31,7 +30,7 @@
 							@if(session('success'))
 				                <div class="mws-form-message success">
 					                <script>
-					                	layer.msg(" {{ session('success')}} ");
+					                	layer.msg(" {{ session('success')}} ")
 					                </script>
 				                </div>
 				            @endif
@@ -68,7 +67,7 @@
 										{{ csrf_field() }}
 										<div class="user-email">
 											<label for="email"><i class="am-icon-envelope-o"></i></label>
-											<input type="email" name="email" id="email" placeholder="请输入邮箱账号">
+											<input type="email" name="email" id="email" placeholder="请输入邮箱账号"><span id="prompt"></span>
 						             	</div>
 
 						             	<div class="user-pass">
@@ -83,7 +82,6 @@
 											<input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
 										</div>
 						             </form>
-										
 
 								</div>
 
@@ -94,7 +92,7 @@
 
 						                 <div class="user-phone">
 											<label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
-											<input type="text" name="tel" id="tel" placeholder="请输入手机号">
+											<input type="text" name="tel" id="tel" placeholder="请输入手机号"><span id=""></span>
 						                 </div>																			
 											<div class="verification">
 												<label for="code"><i class="am-icon-code-fork"></i></label>
@@ -117,7 +115,7 @@
 								
 									<hr>
 								</div>
-
+								
 								<script>
 									$(function() {
 									    $('#doc-my-tabs').tabs();

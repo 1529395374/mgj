@@ -39,7 +39,7 @@ class RegisterController extends Controller
         $tel = $request -> input('tel');
         $pcode = rand(1000,9999);
         session(['tel_code'=>$pcode]);
-        $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&format=json&account=C97148218&password=adb80ff808acd959f3fe4e427841fbc7&mobile='.$tel.'&content=您的验证码是：'.$pcode.'。请不要把验证码泄露给其他人。';
+        $url = 'http://106.ihuyi.com/webservice/sms.php?method=Submit&format=json&account=C87889380&password=e8439f99bb51ead7d269b5491b3aab4b&mobile='.$tel.'&content=您的验证码是：'.$pcode.'。请不要把验证码泄露给其他人。';
         $curlHandler = curl_init(); //curl  模拟http请求
         curl_setopt($curlHandler, CURLOPT_URL, $url);
         curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, 1);
@@ -63,7 +63,7 @@ class RegisterController extends Controller
                 $this->validate($request, [
                         'password' => 'required|regex:/[\w]{6,}/',
                         'repassword' => 'required|same:password',
-                        'tel' => 'required|regex:/^1[3-9]{1}[\d]{9}$/',
+                        'tel' => 'required|unique:users|regex:/^1[3-9]{1}[\d]{9}$/',
                         'tel_code' => 'required',
                     ],[
                         'password.required' => '密码必填',
@@ -71,6 +71,7 @@ class RegisterController extends Controller
                         'repassword.required' => '确认密码必填',
                         'repassword.same' => '确认密码与密码不一致',
                         'tel.required' => '手机号必填',
+                        'tel.unique' => '手机号已注册',
                         'tel.regex' => '手机号格式不正确',
                         'tel_code.required' => '手机验证码必填',
                     ]);
@@ -118,13 +119,14 @@ class RegisterController extends Controller
                 $this->validate($request, [
                         'password' => 'required|regex:/[\w]{6,}/',
                         'repassword' => 'required|same:password',
-                        'email' => 'required|email',
+                        'email' => 'required|unique:users|email',
                     ],[
                         'password.required' => '密码必填',
                         'password.regex' => '密码最少6位',
                         'repassword.required' => '确认密码必填',
                         'repassword.same' => '确认密码与密码不一致',
                         'email.required' => '邮箱必填',
+                        'email.unique' => '邮箱已注册',
                         'email.email'   => '邮箱格式不正确',
                     ]);
             // 密码加盐
@@ -148,7 +150,7 @@ class RegisterController extends Controller
                 DB::commit();   //提交事务
                 self::sendEmail($email,$id,$token);
                 //注册成功
-                return redirect('/home/login')->with('success','注册成功');
+                return redirect('/home/login')->with('success','注册成功,请到邮箱中激活该账号！');
                 
             }else{
                 DB::rollBack(); //回滚事务
@@ -192,6 +194,7 @@ class RegisterController extends Controller
         }else{
             dd('激活失败');
         }
+        
     }
 
     //封装  邮箱发送
@@ -204,5 +207,5 @@ class RegisterController extends Controller
         });
 
     }
-    
+
 }

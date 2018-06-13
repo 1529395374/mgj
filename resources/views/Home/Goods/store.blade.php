@@ -53,7 +53,7 @@
             <div class="des_choice">
                 <span class="fl">型号选择：</span>
                 <ul>
-                    <li class="checked size1">30ml<div class="ch_img"></div></li>
+                    <li class="size1">30ml<div class="ch_img"></div></li>
                     <li class="size2">50ml<div class="ch_img"></div></li>
                     <li class="size3">100ml<div class="ch_img"></div></li>
                 </ul>
@@ -62,7 +62,7 @@
                 <span class="fl">颜色选择：</span>
                 <ul>
                     <li class="color1">红色<div class="ch_img"></div></li>
-                    <li class="checked color2">白色<div class="ch_img"></div></li>
+                    <li class="color2">白色<div class="ch_img"></div></li>
                     <li class="color3">黑色<div class="ch_img"></div></li>
                 </ul>
             </div>

@@ -11,6 +11,7 @@ use App\Models\Cate;
 use App\Models\Admin\Link;
 use App\Models\Admin\Ad;
 
+
 class IndexController extends Controller
 {
     /** 
@@ -21,7 +22,7 @@ class IndexController extends Controller
 
     public function index()
     {
-
+        
         //查询轮播图表信息
         $carousel = Carousel::get();
         //查询新闻表信息
