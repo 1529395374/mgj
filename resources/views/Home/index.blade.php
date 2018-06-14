@@ -159,7 +159,7 @@
                 @endif
                 <a href="/home/login/logout">退出</a>&nbsp; 
                 <a href="/home/info">个人信息</a>&nbsp;
-                <a href="">我的订单</a>&nbsp;|
+                <a href="/home/order/index">我的订单</a>&nbsp;|
             <?php endif; ?> 
             </span>
         	<span class="ss">

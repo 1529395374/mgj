@@ -76,6 +76,8 @@ Route::get('/home/goods/search','Home\GoodsController@search');
 Route::controller('/home/goods','Home\GoodsController');
 // 前台订单
 Route::controller('/home/order','Home\OrderController');
+// 后台订单
+Route::resource('/admin/order','Admin\OrderController');
 
 
 

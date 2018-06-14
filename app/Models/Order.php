@@ -9,9 +9,15 @@ class Order extends Model
     protected $table = 'orders';
     protected $primaryKey = 'id';
 
-    //属于 user
-	public function cate()
+    // 关联商品
+	public function order_goods()
     {
-        return $this->belongsTo('App\Models\Cate','cid');
+        return $this->hasMany('App\Models\Goods','id','gid');
+    }
+
+    // 关联用户
+	public function order_user()
+    {
+        return $this->belongsTo('App\User','uid');
     }
 }

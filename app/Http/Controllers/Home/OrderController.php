@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Goods;
 
 class OrderController extends Controller
 {
@@ -17,10 +18,29 @@ class OrderController extends Controller
      */
     public function getIndex()
     {
+        if(!session('log')){
+            return redirect('/home/login')->with('success','请先登录');
+        }
         // 订单列表
-        $data = Order::get();
+        $data = Order::where('uid',session('log')->id)->orderBy('state','desc')->get();
         // 渲染模板
-        return view('/Home/Order/index',['data'=>$data]);
+        // dd($data);
+        $tmp2 = [];
+        foreach ($data as $key => $value) {
+          //订单号
+          $id = $value -> gid;
+          //商品信息
+          $tmp = Goods::find($id);
+          $value -> gname = $tmp -> gname;
+          $value -> pic = $tmp ->pic;
+          $value -> dj = $tmp ->price;
+          $value -> gid = $tmp ->id;
+          // 订单详情信息
+          $tmp2[$value->wlid][] = $value;
+        }
+
+        // dd($tmp2);
+        return view('/Home/Order/index',['data'=>$tmp2]);
     }
 
     /**
@@ -42,7 +62,7 @@ class OrderController extends Controller
     public function getStore($id)
     {
         $data = Order::where('wlid',$id)->get();
-        // dd($data->id);
+        // dd($data);
         return view('Home/Order/store',['data'=>$data]);
     }
 
@@ -52,42 +72,16 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getDelete($id)
     {
-        //
+        // echo $id;
+        $res = Order::where('wlid',$id)->update(['state'=>'4']);
+        if($res){
+            return redirect('/home/order/index')->with('success','订单已取消');
+        }else{
+            return redirect('/home/order/index')->with('success','取消订单失败');
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+   
 }

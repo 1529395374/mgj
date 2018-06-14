@@ -372,6 +372,14 @@ use App\Models\Cate; ?>
                         </ul>
                     </li>
                 </ul>
+                <ul>
+                    <li>
+                        <a href=""><i class="icon-list"></i> 订单管理</a>
+                        <ul>
+                            <li><a href="/admin/order">订单列表</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>  
         </div>
         
