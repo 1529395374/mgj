@@ -61,8 +61,8 @@ Route::resource('/home/collect','Home\CollectController');
 
 
 Route::post('/home/userinfo/uploads','Home\UserinfoController@uploads'); 			//头像上传
-
-
+//账户安全(隐式)修改手机号 邮箱 密码
+Route::controller('/home/safe','Home\SafeController');
 
 
 
