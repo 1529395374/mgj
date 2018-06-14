@@ -25,13 +25,13 @@
           <tr>
             <td align="center"><input type="checkbox" class="car_checked"></td>
             <td>
-            	<div class="c_s_img" style="height:73px;width: 73px"><a href="/home/goods/store/{{$v->id}}"><img src="{{$v->pic}}" alt=""></a></div>
+            	<div class="c_s_img" style="height:73px;width: 73px"><a href="/home/goods/store/{{$v->id}}"><img src="{{$v->pic}}" alt="" style="height:73px;width: 73px"></a></div>
                 <a href="/home/goods/store/{{$v->id}}">{{$v->gname}}</a>
             </td>
             <td align="center">
             	<div class="c_num">
                     <input type="button" value=""  class="car_btn_1" />
-                	<input type="text" value="{{$v->num}}" name="" class="car_ipt" />  
+                	<input type="text" value="{{$v->num}}" name="" class="car_ipt" readonly/>  
                     <input type="button" value=""  class="car_btn_2" />
                     <!-- 商品id -->
                     <input type="hidden" value="{{$v->id}}" class="igid">

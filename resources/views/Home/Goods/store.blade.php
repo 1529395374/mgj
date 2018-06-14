@@ -86,7 +86,7 @@
                     <input type="button" value=""  class="n_btn_2" />   
                 </div>
                 <div class="j_nums" style="line-height: 45px;border: 0px solid red">
-                库存 :<span class="ignum">{{$data->gnum-1}}</span>件  
+                库存 :<span class="ignum">{{$data->gnum}}</span>件  
                 </div>
                 <span class="fl ifl" id="gwc"><a href="javascript:;"><img src="/Home/images/j_car.png" /></a></span>
             </div>            

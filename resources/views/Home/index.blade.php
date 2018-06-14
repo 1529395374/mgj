@@ -21,6 +21,7 @@
     <script type="text/javascript" src="/Home/js/bban.js"></script>
     <script type="text/javascript" src="/Home/js/hban.js"></script>
     <script type="text/javascript" src="/Home/js/tban.js"></script>
+
     <script src="/layui/layui.all.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/Home/js/lrscroll_1.js"></script>
     <link rel="stylesheet" type="text/css" href="/Home/bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -40,7 +41,6 @@
         var jq = jQuery.noConflict();
     </script>
     <script src="/layui/layui.all.js" type="text/javascript"></script>
-    <script type="text/javascript" src="/layui/jquery-3.2.1.min.js"></script>
 <title>尤洪</title>
 </head>
 <body>
@@ -152,11 +152,11 @@
             <?php else: ?>
                 你好，
                 @if(!empty(session('log')->email))
-                       {{ substr_replace(session('log')->email,'****',4,4) }}
+                       <a href="/home/info" class="username">{{ substr_replace(session('log')->email,'****',4,4) }}</a>
                 @elseif(!empty(session('log')->tel))
-                        {{ substr_replace(session('log')->tel,'****',4,4) }}         
+                        <a href="/home/info" class="username">{{ substr_replace(session('log')->tel,'****',4,4) }}</a>
                 @elseif(!empty(session('log')->username))
-                        {{session('log')->username}}
+                        <a href="/home/info" class="username">{{session('log')->username}}</a>
                 @endif
                 <a href="/home/login/logout">退出</a>&nbsp; 
                 <a href="/home/info">个人信息</a>&nbsp;
