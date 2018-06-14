@@ -21,6 +21,7 @@
     <script type="text/javascript" src="/Home/js/bban.js"></script>
     <script type="text/javascript" src="/Home/js/hban.js"></script>
     <script type="text/javascript" src="/Home/js/tban.js"></script>
+
     <script src="/layui/layui.all.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/Home/js/lrscroll_1.js"></script>
     <link rel="stylesheet" type="text/css" href="/Home/bootstrap-3.3.7-dist/css/bootstrap.min.css">

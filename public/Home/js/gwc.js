@@ -6,23 +6,22 @@ $(function(){
 	//库存
 	var gnum = $('.ignum');
 	//购买数量
-	var num = $('.n_ipt');	
-
+	var num = $('.n_ipt');
+	
 	jia.click(function(){
-		if (parseInt(gnum.text()) == 0)  {
-				gnum.text(0)
-				num.val(parseInt(num.val()))
+		if (parseInt(num.val()) >= parseInt(gnum.text()))  {
+				return false;
 		} else{
 			num.val(parseInt(num.val())+1)
-		gnum.text(parseInt(gnum.text())-1)
+			// gnum.text(parseInt(gnum.text())-1)
 		}
 	});
 	jian.click(function(){
-		if (parseInt(num.val()) == 1)  {
+		if (parseInt(num.val()) <= 1)  {
 				return false;
 		} else{
 			num.val(parseInt(num.val())-1)
-			gnum.text(parseInt(gnum.text())+1)
+			// gnum.text(parseInt(gnum.text())+1)
 		}
 	});
 
@@ -30,8 +29,18 @@ $(function(){
 			
 		// 点击购物 弹出购物车
 		$('#gwc').click(function(){
-			if (parseInt(num.val()) == 0) {
-				layer.msg('请选择商品数量', {icon: 5, time: 2000});
+			if (parseInt(num.val()) > parseInt(gnum.text())) {
+				layer.msg('购买商品数量超出库存,请重新选择！', {icon: 7, time: 2000});
+				return false;
+			}
+
+			if (parseInt(gnum.text()) == 0 ) {
+				layer.msg('商品已售空,去看看其它商品吧!', {icon: 7, time: 2000});
+				return false;
+			}
+
+			if (parseInt(num.val()) <= 0) {
+				layer.msg('请正确选择商品数量', {icon: 5, time: 2000});
 				return false;
 			}
 

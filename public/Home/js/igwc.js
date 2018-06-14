@@ -54,51 +54,51 @@
   //加号
   
       $('.car_btn_2').click(function(){
-    //数量
-      var num = $(this).prev();
-    //商品id
-      var gid = $(this).next().val();
-    //商品库存
-      var gnum =$(this).next().next().val();
-    // 商品单价
-      var dj = $(this).next().next().next().val();//40
-    // 商品小计
-      var xj = $(this).parent().parent().next().find('span');
-      if (num.val() == gnum) {
-        num.val() = gnum;
-      } else{
-        num.val(parseInt(num.val())+1);
-      }
-      //变化后的数量
-      var inum = num.val();
-      // 计算小计
-      var newxj  = parseInt(dj)*parseInt(inum);
-      //重新赋值if
-     xj.text(newxj);
-      //总计
-      if($(this).parent().parent().prev().prev().find('input').prop('checked')) {
-        // alert(1)
-          totalmoney.text(parseInt(totalmoney.text()) + parseInt(dj))
-      }
-      //设置ajax保护
-      $.ajaxSetup({
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
+      //数量
+        var num = $(this).prev();
+      //商品id
+        var gid = $(this).next().val();
+      //商品库存
+        var gnum =$(this).next().next().val();
+      // 商品单价
+        var dj = $(this).next().next().next().val();//40
+      // 商品小计
+        var xj = $(this).parent().parent().next().find('span');
+        if (num.val() == gnum) {
+          num.val() = gnum;
+        } else{
+          num.val(parseInt(num.val())+1);
+        }
+        //变化后的数量
+        var inum = num.val();
+        // 计算小计
+        var newxj  = parseInt(dj)*parseInt(inum);
+        //重新赋值if
+       xj.text(newxj);
+        //总计
+        if($(this).parent().parent().prev().prev().find('input').prop('checked')) {
+          // alert(1)
+            totalmoney.text(parseInt(totalmoney.text()) + parseInt(dj))
+        }
+        //设置ajax保护
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+          });
+        //发送ajax
+        $.ajax({
+          url:'/home/car/changenum',
+          data:{'id':gid,'num':inum},
+          type:'POST',
+          dataType:'json',
+          success:function(msg){
+             if (msg.status == 0) {
+                layer.msg(msg.msg, {icon: 5, time: 1000});
+             }
+          },
+          async: false,
         });
-      //发送ajax
-      $.ajax({
-        url:'/home/car/changenum',
-        data:{'id':gid,'num':inum},
-        type:'POST',
-        dataType:'json',
-        success:function(msg){
-           if (msg.status == 0) {
-              layer.msg(msg.msg, {icon: 5, time: 1000});
-           }
-        },
-        async: false,
-      });
       
   });
 

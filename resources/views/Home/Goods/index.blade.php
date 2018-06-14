@@ -70,7 +70,7 @@
             
             <ul class="cate_list">
             @foreach($data as $v)
-                <li>
+                <li class="higood">
                     <div class="img"><a href="/home/goods/store/{{$v->id}}"><img src="{{$v->pic}}" width="210" height="185" /></a></div>
                     <div class="price">
                         <font>￥<span>{{$v->price}}.00</span></font> &nbsp; 26R
@@ -93,4 +93,9 @@
         </div>
     </div>
 </div>
+<script>
+    if ($('.higood').length == 0) {
+        layer.msg('没有找到该宝贝,试试搜索其他的商品吧....', {icon: 6, time: 3000});  
+    }
+</script>
 @endsection
