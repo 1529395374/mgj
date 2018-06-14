@@ -53,18 +53,6 @@ class OrderController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function getStore($id)
-    {
-        $data = Order::where('wlid',$id)->get();
-        // dd($data);
-        return view('Home/Order/store',['data'=>$data]);
-    }
 
     /**
      * Display the specified resource.
