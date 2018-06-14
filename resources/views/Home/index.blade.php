@@ -164,12 +164,12 @@
             </span>
         	<span class="ss">
             	<div class="ss_list">
-                	<a href="/Home/#">收藏夹</a>
+                	<a href="/home/collect/sclist">收藏夹</a>
                     <div class="ss_list_bg">
                     	<div class="s_city_t"></div>
                         <div class="ss_list_c">
                         	<ul>
-                            	<li><a href="/Home/#">我的收藏夹</a></li>
+                            	<li><a href="/home/collect/sclist">我的收藏夹</a></li>
                             </ul>
                         </div>
                     </div>     
