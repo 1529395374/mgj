@@ -21,6 +21,7 @@
     <script type="text/javascript" src="/Home/js/bban.js"></script>
     <script type="text/javascript" src="/Home/js/hban.js"></script>
     <script type="text/javascript" src="/Home/js/tban.js"></script>
+
     <script src="/layui/layui.all.js" type="text/javascript"></script>
 	<script type="text/javascript" src="/Home/js/lrscroll_1.js"></script>
     <link rel="stylesheet" type="text/css" href="/Home/bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -159,17 +160,17 @@
                 @endif
                 <a href="/home/login/logout">退出</a>&nbsp; 
                 <a href="/home/info">个人信息</a>&nbsp;
-                <a href="">我的订单</a>&nbsp;|
+                <a href="/home/order/index">我的订单</a>&nbsp;|
             <?php endif; ?> 
             </span>
         	<span class="ss">
             	<div class="ss_list">
-                	<a href="/Home/#">收藏夹</a>
+                	<a href="/home/collect/sclist">收藏夹</a>
                     <div class="ss_list_bg">
                     	<div class="s_city_t"></div>
                         <div class="ss_list_c">
                         	<ul>
-                            	<li><a href="/Home/#">我的收藏夹</a></li>
+                            	<li><a href="/home/collect/sclist">我的收藏夹</a></li>
                             </ul>
                         </div>
                     </div>     

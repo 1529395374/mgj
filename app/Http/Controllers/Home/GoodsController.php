@@ -152,6 +152,7 @@ class GoodsController extends Controller
         $id = array_unique($id);
         $count = count($id);
         $data = Goods::whereIn('id',$id)->where('status','1')->where('gnum','>',1)->get();
-        return view('/Home/Goods/index',['data'=>$data,'gname'=>$gname,'count'=>$count]);
+        $set = '';
+        return view('/Home/Goods/index',['data'=>$data,'gname'=>$gname,'count'=>$count,'set'=>$set]);
     }
 }
