@@ -41,15 +41,9 @@
             </div>
             <br>
             <br>
-            <h4>商品描述</h4>
-            <div>
-                <h5><p>{{$data->gdesc}}</p></h5>
-            </div>
-            <br>
             <div class="des_price">
                 本店价格：￥<b class="money">{{$data->price}}</b><br />
             </div>
-            <br>
             <div class="des_choice">
                 <span class="fl">型号选择：</span>
                 <ul>
@@ -58,6 +52,7 @@
                     <li class="size3">100ml<div class="ch_img"></div></li>
                 </ul>
             </div>
+            <br>
             <div class="des_choice">
                 <span class="fl">颜色选择：</span>
                 <ul>
@@ -89,13 +84,27 @@
                 库存 :<span class="ignum">{{$data->gnum}}</span>件  
                 </div>
                 <span class="fl ifl" id="gwc"><a href="javascript:;"><img src="/Home/images/j_car.png" /></a></span>
-            </div>            
+            </div>          
         </div>    
         
         <div class="s_brand">
             <div class="s_brand_img"><img src="/Home/images/sbrand.jpg" width="188" height="132" /></div>
             <div class="s_brand_c"><a href="/Home/#">进入品牌专区</a></div>
-        </div>    
+        </div> 
+         <div class="l_list" style="float:none;width:100%">           
+            <div class="des_border" id="p_details">
+                <div class="des_t">商品详情</div>
+                <div class="des_con">
+                    <table border="0" align="center" style="width:745px; font-size:14px; font-family:'宋体';" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td>
+                            {!! $data->gdesc !!}
+                        </td>
+                      </tr>
+                    </table>
+                </div>
+            </div>  
+        </div>
     </div>
     <!--Begin 弹出层-收藏成功 Begin-->
     <div id="fade" class="black_overlay"></div>
