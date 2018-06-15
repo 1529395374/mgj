@@ -71,7 +71,7 @@ class UserController extends Controller
             $name = $dir_name.'/'.$temp_name;//拼接路径便于存储
             //echo $name;
             //exit;
-            $res1 = $pic -> move($dir_name,$temp_name);
+            $res1 = ltrim($pic -> move($dir_name,$temp_name),'.');
             // echo $res1;
             // exit;
         }

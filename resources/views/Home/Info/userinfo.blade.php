@@ -19,22 +19,24 @@
                     <li><a href="/home/safe">账户安全</a></li>
                 </ul>
             </div>
+
         </div>
         <div class="m_right">
             <div class="mem_t">账号信息</div>
                 <div class="m_des">
-                    <form action="/home/info/{{ session('log')->id }}" method="post" enctype="multipart/form-data">
+                    <form action="/home/info/{{ $data->id }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
                             <table border="0" style="width:870px; line-height:22px;" cellspacing="0" cellpadding="0">
                           <tr valign="top">
                             <td width="115">
                                 <label for="test1">
-                                    <img id="pic" src="{{ session('log')->pic }}" width="90" height="90" />
+                                @if($data->pic != null)
+                                    <img id="pic" src="{{ $data->pic }}" width="90" height="90" />
+                                @else
+                                    <img id="pic" src="/uploads/define.jpg" width="90" height="90" />
+                                @endif
                                 </label>
-                                <button type="button" class="layui-btn" id="test1" style="display:none;">
-                                  <i class="layui-icon">&#xe67c;</i>上传图片
-                                </button>
                                 <input type="hidden" name="pic" value="" id="hidden">
                                 <?php echo csrf_field(); ?>
                                 <script>
@@ -43,7 +45,7 @@
                                        
                                       //执行实例
                                       var uploadInst = upload.render({
-                                        elem: '#test1' //绑定元素
+                                        elem: '#pic' //绑定元素
                                         ,url: '/home/userinfo/uploads' //上传接口
                                         ,method: 'POST'
                                         ,data: {'_token':$('input[type=hidden]').eq(0).val()}
@@ -61,6 +63,7 @@
                                         
                                       });
                                     });
+                                    $('.layui-upload-file').remove();
                                 </script>
                                 <script>
                                 $('#pic').mouseover(function(){
@@ -76,18 +79,18 @@
                       <tr>
                         <td width="40%">姓&nbsp; &nbsp; 名：<input type="text" name="username" value="{{ session('log')->username }}" /></td>
                         <td width="60%">性&nbsp; &nbsp; 别：
-                            <input type="radio" name="sex" @if(!empty(session('log')->userinfo) && session('log')->userinfo->sex == 'm')checked @endif value="m" />男
-                            <input type="radio" name="sex" @if(!empty(session('log')->userinfo) && session('log')->userinfo->sex == 'w')checked @endif value="w" />女
-                            <input type="radio" name="sex" @if(!empty(session('log')->userinfo) && session('log')->userinfo->sex == 'x')checked @endif value="x" />保密
+                            <input type="radio" name="sex" value="m" @if($data->userinfo->sex == 'm') checked @endif  />男
+                            <input type="radio" name="sex" value="w"  @if($data->userinfo->sex == 'w') checked @endif />女
+                            <input type="radio" name="sex" value="x"  @if($data->userinfo->sex == 'x') checked @endif />保密
                         </td>
                       </tr>
                       <tr>
-                        <td>电&nbsp; &nbsp; 话：<input type="text" name="tel" value="{{ session('log')->tel }} " /></td>
-                        <td>邮&nbsp; &nbsp; 箱：<input type="text" name="email" value="{{ session('log')->email }}" /></td>
+                        <td>电&nbsp; &nbsp; 话：<input type="text" name="tel" value="{{ $data->tel }} " /></td>
+                        <td>邮&nbsp; &nbsp; 箱：<input type="text" name="email" value="{{ $data->email }}" /></td>
                       </tr>
                       <tr>
-                        <td>地&nbsp; &nbsp; 址：<input type="text" name="addr" value="{{ session('log')->userinfo->addr }}" /></td>
-                        <td>年&nbsp; &nbsp; 龄：<input type="text" name="age" value="{{ session('log')->userinfo->age }}" /></td>
+                        <td>地&nbsp; &nbsp; 址：<input type="text" name="addr" value="{{ $data->userinfo->addr }}" /></td>
+                        <td>年&nbsp; &nbsp; 龄：<input type="text" name="age" value="{{ $data->userinfo->age }}" /></td>
                       </tr>
                       <tr height="30">
                         <td>&nbsp;</td>

@@ -32,7 +32,7 @@ Route::get('/admin/login/logout','Admin\LoginController@logout'); //1:1
 
 //路由组  对一组路由进行统一的管理
 Route::group(['middleware'=>'login'],function(){
-		//后台修改密码
+	//后台修改密码
 	Route::get('/admin/user/xpw/{id}','Admin\UserController@xpw'); //1:1
 	Route::post('/admin/user/x1pw/{id}','Admin\UserController@x1pw'); //1:1
 	//后台用户管理

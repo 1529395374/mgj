@@ -17,7 +17,9 @@ class UserinfoController extends Controller
      */
     public function index()
     {
-        return view('home.info.userinfo');
+        $id = session('log')->id;
+        $data = User::find($id);
+        return view('home.info.userinfo',['data'=>$data]);
     }
 
     
@@ -86,6 +88,8 @@ class UserinfoController extends Controller
 
     public function uploads(Request $request)
     {
+      $id = session('log')->id;
+      $user = User::find($id);
 
         // 检测是否有文件上传
        if($request -> hasFile('pic')){
@@ -98,7 +102,9 @@ class UserinfoController extends Controller
             $hz = $pic ->getClientOriginalExtension();
             $name = $file_name.'.'.$hz;//拼接路径便于存储
             $res = $pic -> move($dir_name,$name);
-
+            $pic = trim($res,'.');
+            $user->pic = $pic;
+            $user->save();
             if($res){
                 $arr = [
                     'code'=>1,
